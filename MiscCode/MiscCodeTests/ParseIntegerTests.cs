@@ -19,11 +19,10 @@ namespace MiscCodeTests
         private static readonly IDictionary<char, int> Chars = Enumerable.Range(0, 10).ToDictionary(i => i.ToString()[0], i => i);
         int atoi(String num)
         {
-            if(String.IsNullOrEmpty(num))
-            {
-                throw new ArgumentException("Expecting num to be integer", "num");
-            }
+            if (num == null) throw new NullReferenceException("Expecting num to be integer found NULL");
             num = num.Trim();
+            if (num == string.Empty) throw new ArgumentException("Expecting num to be integer found empty", "num");
+            
 
             int result = 0; 
             var j = 0;

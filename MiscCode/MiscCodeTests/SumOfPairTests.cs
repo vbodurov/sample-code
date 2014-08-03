@@ -12,6 +12,7 @@ namespace MiscCodeTests
         {
             int[] input = { 2, 45, 7, 3, 5, 1, 8, 9 };
 
+            // what pairs if added together give 10
             var pairs = GetSumPairs(input, 10);
 
             foreach (var t in pairs)
