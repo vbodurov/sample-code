@@ -8,7 +8,7 @@ namespace MiscCodeTests.Model
 
     public abstract class BaseHeap
     {
-        private readonly List<int> _array = new List<int>();
+        private readonly List<int> _array = new List<int>(128);
         private int _heapSize = -1;
 
         protected abstract bool Compare(int a, int b);
@@ -68,17 +68,11 @@ namespace MiscCodeTests.Model
             array[bIndex] = aux;
         }
 
-        protected int left(int i)
-        {
-            return 2 * i + 1;
-        }
- 
-        protected int right(int i)
-        {
-            return 2 * (i + 1);
-        }
- 
-        protected int GetParent(int i)
+// if you need those...
+//        private int GetLeft(int i) { return 2 * i + 1; }
+//        private int GetRight(int i) { return 2 * (i + 1); }
+
+        private int GetParent(int i)
         {
             if( i <= 0 )
             {
@@ -87,8 +81,8 @@ namespace MiscCodeTests.Model
  
             return (i - 1)/2;
         }
- 
-        protected void Heapify(int i)
+
+        private void Heapify(int i)
         {
             int p = GetParent(i);
  
