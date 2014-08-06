@@ -44,6 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedianFromStreamOfNumbersTests.cs" />
+    <Compile Include="Model\BaseHeap.cs" />
+    <Compile Include="ReverseWordsTests.cs" />
     <Compile Include="TexasHoldemTests.cs" />
     <Compile Include="BubbleSortTests.cs" />
     <Compile Include="FibonacciTests.cs" />
