@@ -24,7 +24,7 @@ namespace MiscCodeTests
             var med = QuickSelect(arr, arr.Length / 2);
             sw.Stop();
             var toBytes = GC.GetTotalMemory(false);
-            Console.WriteLine("medium:" + med);
+            Console.WriteLine("median:" + med);
             Console.WriteLine(sw.Elapsed.Milliseconds + "ms|memory used:" + ((toBytes - fromBytes) / (1024 * 1024)) + "MB");
 
 

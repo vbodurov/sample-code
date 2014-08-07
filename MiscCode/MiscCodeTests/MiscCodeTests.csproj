@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinarySearchTests.cs" />
     <Compile Include="MedianFromStreamOfNumbersTests.cs" />
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ReverseWordsTests.cs" />
