@@ -20,24 +20,24 @@ namespace MiscCodeTests
         }
 
 
-        private static int Partition(int[] numbers, int left, int right)
+        private static int Partition(int[] numbers, int leftIndex, int rightIndex)
         {
-            int pivotValue = numbers[left];
+            int pivotValue = numbers[leftIndex];
             while (true)
             {
-                while (numbers[left] < pivotValue)
-                    left++;
+                while (numbers[leftIndex] < pivotValue)
+                    leftIndex++;
 
-                while (numbers[right] > pivotValue)
-                    right--;
+                while (numbers[rightIndex] > pivotValue)
+                    rightIndex--;
 
-                if (left < right)
+                if (leftIndex < rightIndex)
                 {
-                    Swap(numbers, left, right);
+                    Swap(numbers, leftIndex, rightIndex);
                 }
                 else
                 {
-                    return right;
+                    return rightIndex;
                 }
             }
         }
@@ -49,18 +49,18 @@ namespace MiscCodeTests
             arr[a] = temp;
         }
 
-        private static void QuickSortRecursive(int[] arr, int left, int right)
+        private static void QuickSortRecursive(int[] arr, int leftIndex, int rightIndex)
         {
             // For Recusrion
-            if (left < right)
+            if (leftIndex < rightIndex)
             {
-                int pivotIndex = Partition(arr, left, right);
+                int pivotIndex = Partition(arr, leftIndex, rightIndex);
 
                 if (pivotIndex > 1)
-                    QuickSortRecursive(arr, left, pivotIndex - 1);
+                    QuickSortRecursive(arr, leftIndex, pivotIndex - 1);
 
-                if (pivotIndex + 1 < right)
-                    QuickSortRecursive(arr, pivotIndex + 1, right);
+                if (pivotIndex + 1 < rightIndex)
+                    QuickSortRecursive(arr, pivotIndex + 1, rightIndex);
             }
         }
     }
