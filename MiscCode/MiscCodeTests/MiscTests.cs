@@ -9,7 +9,7 @@ namespace MiscCodeTests
         [Test]
         public void Test1()
         {
-            Console.WriteLine(1);
+            Console.WriteLine(((int)"9".ToLowerInvariant()[0] - 'a'));
         }
         [Test]
         public void Test2()

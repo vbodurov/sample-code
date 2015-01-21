@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearchTests.cs" />
+    <Compile Include="DeleteFiles.cs" />
+    <Compile Include="InheritanceTests.cs" />
     <Compile Include="MedianFromStreamOfNumbersTests.cs" />
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ReverseWordsTests.cs" />
