@@ -10,7 +10,7 @@ namespace MiscCodeTests
         [Test]
         public void DeleteMeta()
         {
-            const string path = @"C:\Archive\_Misc\com.bodurov.NdSpace";
+            const string path = @"C:\github\fairy-pool-youvisio\FairyPool\Assets\Scripts";
             var fsi = new FileSystemIterator(path);
             fsi.ProcessElement += (o, a) =>
                                   {
