@@ -68,6 +68,7 @@
     <Compile Include="MedianFromStreamOfNumbersTests.cs" />
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ReverseWordsTests.cs" />
+    <Compile Include="ShortGuid.cs" />
     <Compile Include="TexasHoldemTests.cs" />
     <Compile Include="BubbleSortTests.cs" />
     <Compile Include="FibonacciTests.cs" />

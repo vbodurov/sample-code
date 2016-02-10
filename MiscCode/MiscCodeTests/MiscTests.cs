@@ -31,12 +31,16 @@ namespace MiscCodeTests
         [Test]
         public void Test2()
         {
+            var span = TimeSpan.FromMinutes(-420);
+            var d = new DateTimeOffset(DateTime.UtcNow.Ticks + span.Ticks, span);
 
+            Console.WriteLine(d);
+            Console.WriteLine(DateTimeOffset.Now+"|"+DateTimeOffset.Now.Offset.TotalMinutes);
         }
         [Test]
         public void Test3()
         {
-
+            
         }
         [Test]
         public void Test4()
@@ -48,6 +52,6 @@ namespace MiscCodeTests
         {
 
         }
-    } 
+    }
 }
 
