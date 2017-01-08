@@ -12,21 +12,20 @@ namespace MiscCodeTests
         [Test]
         public void Test1()
         {
-            var s = "/Users/vladimirbodurov/Desktop/Code/GitHub/multiplayer-experiment/CircuitRacerBegin/Assets";
-            //s:/Users/vladimirbodurov/Desktop/Code/GitHub/multiplayer-experiment/CircuitRacerBegin/Assets
-
-            var arr = s.Split(new[] {'/', '\\'}, StringSplitOptions.None);
-
-            //code:/Users/vladimirbodurov/Desktop/Code/
-            var codeRoot = String.Join("/", arr.Take(arr.Length - 4))+"/";
-
-            //gitRoot:/Users/vladimirbodurov/Desktop/Code/GitHub/multiplayer-experiment/
-            var gitRoot = String.Join("/", arr.Take(arr.Length - 2))+"/";
-
-            //unityRoot:/Users/vladimirbodurov/Desktop/Code/GitHub/multiplayer-experiment/CircuitRacerBegin/
-            var unityRoot = String.Join("/", arr.Take(arr.Length - 1))+"/";
-
-            Console.WriteLine(unityRoot);
+            var n = 0;
+            for (var i = 0; i < 4; ++i)
+            {
+                Console.WriteLine("PRE:"+i);
+                if (n == 0 && i == 2)
+                {
+                    Console.WriteLine(i+"=>"+(i-2));
+                    ++n;
+                    i -= 2;
+                    continue;
+                }
+                Console.WriteLine("POS:"+i);
+                
+            }
         }
         [Test]
         public void Test2()

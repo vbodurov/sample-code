@@ -60,6 +60,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BinarySearchTests.cs" />
@@ -68,6 +72,7 @@
     <Compile Include="InheritanceTests.cs" />
     <Compile Include="MedianFromStreamOfNumbersTests.cs" />
     <Compile Include="Model\BaseHeap.cs" />
+    <Compile Include="ProjectionTests.cs" />
     <Compile Include="ReverseWordsTests.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="TexasHoldemTests.cs" />
@@ -99,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Files\Speech.wav" />
+    <Content Include="Libs\UnityEngine.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
