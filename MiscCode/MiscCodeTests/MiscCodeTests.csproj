@@ -66,10 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackPropagation.cs" />
     <Compile Include="BinarySearchTests.cs" />
     <Compile Include="DeleteFiles.cs" />
     <Compile Include="GenerateIpData.cs" />
     <Compile Include="InheritanceTests.cs" />
+    <Compile Include="LogisticGradient.cs" />
     <Compile Include="MedianFromStreamOfNumbersTests.cs" />
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ProjectionTests.cs" />
