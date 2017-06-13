@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -76,7 +77,9 @@
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ProjectionTests.cs" />
     <Compile Include="ReverseWordsTests.cs" />
+    <Compile Include="SpiralTests.cs" />
     <Compile Include="ShortGuid.cs" />
+    <Compile Include="SimpleNeuralNet.cs" />
     <Compile Include="TexasHoldemTests.cs" />
     <Compile Include="BubbleSortTests.cs" />
     <Compile Include="FibonacciTests.cs" />

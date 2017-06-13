@@ -319,6 +319,7 @@ namespace MiscCodeTests
             return result;
         }
 
+        // here is the main juice!
         public double[] ComputeOutputs(double[] xValues)
         {
             double[] hSums = new double[numHidden]; // hidden nodes sums scratch array
