@@ -10,7 +10,7 @@ namespace MiscCodeTests
         [Test]
         public void DeleteMeta()
         {
-            const string path = @"C:\_Temp\TempSwordAndShieldV1";
+            const string path = @"C:\_Temp\Scripts";
             var fsi = new FileSystemIterator(path);
             fsi.ProcessElement += (o, a) =>
                                   {
