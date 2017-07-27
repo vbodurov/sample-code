@@ -9,6 +9,7 @@ namespace MiscCodeTests
     [TestFixture]
     public class SimpleNeuralNet
     {
+        // translation of Siraj python code from video https://www.youtube.com/watch?v=h3l4qz76JhQ into C#
         //https://github.com/stmorgan/pythonNNexample/blob/master/PythonNNExampleFromSirajology.py
         // if you want to rewrite this as command line, replace Run with the static Main method
         [Test]
