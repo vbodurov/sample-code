@@ -197,6 +197,7 @@ namespace MiscCodeTests
 
             return result;
         }
+        // to be used for debugging:
         internal static void PrintInConsole(this double[,] arr)
         {
             int rowLength = arr.GetLength(0);
