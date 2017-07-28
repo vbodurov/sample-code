@@ -63,9 +63,9 @@ namespace MiscCodeTests
                 if (times%10000==0)
                     Console.WriteLine("Error:"+errorsL2.AggregateEach(0.0, (n,e) => n + Math.Abs(e)) / (errorsL2.Columns()*errorsL2.Rows()));
 
-                var deltaL2 = errorsL2.MultiplyWith(l2.Apply(FuncDerivative));
+                var deltaL2 = errorsL2.MultiplyValues(l2.Apply(FuncDerivative));
                 var errorL1 = deltaL2.DotProductWith(syn1.Transpose());
-                var deltaL1 = errorL1.MultiplyWith(l1.Apply(FuncDerivative));
+                var deltaL1 = errorL1.MultiplyValues(l1.Apply(FuncDerivative));
                 syn1 = syn1.AddTo(l1.Transpose().DotProductWith(deltaL2));
                 syn0 = syn0.AddTo(l0.Transpose().DotProductWith(deltaL1));
             }
@@ -108,16 +108,19 @@ namespace MiscCodeTests
                     result[r,c] = a[r,c] + b[r,c];
             return result;
         }
-        internal static double[,] MultiplyWith(this double[,] a, double[,] b)
+        // not to be confused with matrix multiplication just multiplying the values !
+        internal static double[,] MultiplyValues(this double[,] a, double[,] b)
         {
-            var result = new double[a.GetLength(0),a.GetLength(1)];
-            for(var r = 0; r < a.GetLength(0); r++)//row
-                for(var c = 0; c < a.GetLength(1); c++)//column
+            var result = new double[a.Rows(), b.Columns()];
+            for(var r = 0; r < a.Rows(); r++)//row
+                for(var c = 0; c < a.Columns(); c++)//column
                     result[r,c] = a[r,c] * b[r,c];
             return result;
+            
         }
         internal static double[,] PopulateWithRandom(this double[,] matrix, Random rand)
         {
+
             for(var r = 0; r < matrix.GetLength(0); r++)//row
                 for(var c = 0; c < matrix.GetLength(1); c++)//column
                     matrix[r,c] = rand.NextDouble()*2.0-1.0;
@@ -125,6 +128,25 @@ namespace MiscCodeTests
         }
         internal static double[,] DotProductWith(this double[,] a, double[,] b)
         {
+            // if you cannot use unsafe, then this is: 
+            // multiplying matrices without the use of unsafe
+            // uncomment it and comment the rest
+            /*
+            var rows = a.GetLength(0);
+            var cols = b.GetLength(1);
+            var colsOfFirstMatrix = a.GetLength(1);
+            var result = new double[rows, cols];
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    result[i, j] = 0;
+                    for (int k = 0; k < colsOfFirstMatrix; k++) // OR k<b.GetLength(0)
+                        result[i, j] = result[i, j] + a[i, k] * b[k, j];
+                }
+            }
+            return result;
+            */
             var result = new double[a.Rows(), b.Columns()];
             int N = result.Rows();
             int K = a.Columns();
@@ -164,6 +186,7 @@ namespace MiscCodeTests
                 }
             }
             return result;
+            
         }
         internal static int Rows<T>(this T[,] matrix)
         {
