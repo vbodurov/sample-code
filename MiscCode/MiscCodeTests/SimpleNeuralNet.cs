@@ -53,19 +53,19 @@ namespace MiscCodeTests
             foreach (var times in Enumerable.Range(0,60000))
             {
                 var l0 = input;
-                var l1 = l0.DotProductWith(syn0).ApplyForEach(Func);
-                var l2 = l1.DotProductWith(syn1).ApplyForEach(Func);
+                var l1 = l0.DotProductWith(syn0).Apply(Func);
+                var l2 = l1.DotProductWith(syn1).Apply(Func);
 
-                var errorsL2 = output.SubstractEach(l2);
+                var errorsL2 = output.SubstractFrom(l2);
 
                 if (times%10000==0)
                     Console.WriteLine("Error:"+errorsL2.AggregateEach(0.0, (n,e) => n + Math.Abs(e)) / (errorsL2.Columns()*errorsL2.Rows()));
 
-                var deltaL2 = errorsL2.MultiplyEach(l2.ApplyForEach(FuncDerivative));
+                var deltaL2 = errorsL2.MultiplyWith(l2.Apply(FuncDerivative));
                 var errorL1 = deltaL2.DotProductWith(syn1.Transpose());
-                var deltaL1 = errorL1.MultiplyEach(l1.ApplyForEach(FuncDerivative));
-                syn1 = syn1.AddEach(l1.Transpose().DotProductWith(deltaL2));
-                syn0 = syn0.AddEach(l0.Transpose().DotProductWith(deltaL1));
+                var deltaL1 = errorL1.MultiplyWith(l1.Apply(FuncDerivative));
+                syn1 = syn1.AddTo(l1.Transpose().DotProductWith(deltaL2));
+                syn0 = syn0.AddTo(l0.Transpose().DotProductWith(deltaL1));
             }
 
             sw.Stop();
@@ -90,7 +90,7 @@ namespace MiscCodeTests
                     aggregator = func(aggregator,a[r,c]);
             return aggregator;
         }
-        internal static double[,] SubstractEach(this double[,] a, double[,] b)
+        internal static double[,] SubstractFrom(this double[,] a, double[,] b)
         {
             var result = new double[a.GetLength(0),a.GetLength(1)];
             for(var r = 0; r < a.GetLength(0); r++)//row
@@ -98,7 +98,7 @@ namespace MiscCodeTests
                     result[r,c] = a[r,c] - b[r,c];
             return result;
         }
-        internal static double[,] AddEach(this double[,] a, double[,] b)
+        internal static double[,] AddTo(this double[,] a, double[,] b)
         {
             var result = new double[a.GetLength(0),a.GetLength(1)];
             for(var r = 0; r < a.GetLength(0); r++)//row
@@ -106,7 +106,7 @@ namespace MiscCodeTests
                     result[r,c] = a[r,c] + b[r,c];
             return result;
         }
-        internal static double[,] MultiplyEach(this double[,] a, double[,] b)
+        internal static double[,] MultiplyWith(this double[,] a, double[,] b)
         {
             var result = new double[a.GetLength(0),a.GetLength(1)];
             for(var r = 0; r < a.GetLength(0); r++)//row
@@ -171,7 +171,7 @@ namespace MiscCodeTests
         {
             return matrix.GetLength(1);
         }
-        internal static double[,] ApplyForEach(this double[,] matrix, Func<double,double> func)
+        internal static double[,] Apply(this double[,] matrix, Func<double,double> func)
         {
             var rows = matrix.Rows();
             var cols = matrix.Columns();
