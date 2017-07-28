@@ -80,7 +80,7 @@ namespace MiscCodeTests
         private static double FuncDerivative(double x)
         {
             return x * (1.0 - x); // sigmoid derivative
-            //return Math.Sqrt(1-Math.Pow(x*2-1,2)); <- with this one the error disapears faster
+            //return Math.Sqrt(1-Math.Pow(x*2-1,2)); <- with this one the error disappears faster
         }
 
     }
