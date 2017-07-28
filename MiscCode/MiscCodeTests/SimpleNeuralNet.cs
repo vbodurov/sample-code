@@ -58,7 +58,7 @@ namespace MiscCodeTests
                 var l1 = l0.MultiplyMatrices(syn0).Apply(Func);
                 var l2 = l1.MultiplyMatrices(syn1).Apply(Func);
 
-                var errorsL2 = output.SubstractFrom(l2);
+                var errorsL2 = output.SubstractValues(l2);
 
                 if (times%10000==0)
                     Console.WriteLine("Error:"+errorsL2.AggregateEach(0.0, (n,e) => n + Math.Abs(e)) / (errorsL2.Columns()*errorsL2.Rows()));
@@ -66,8 +66,8 @@ namespace MiscCodeTests
                 var deltaL2 = errorsL2.MultiplyValues(l2.Apply(FuncDerivative));
                 var errorL1 = deltaL2.MultiplyMatrices(syn1.Transpose());
                 var deltaL1 = errorL1.MultiplyValues(l1.Apply(FuncDerivative));
-                syn1 = syn1.AddTo(l1.Transpose().MultiplyMatrices(deltaL2));
-                syn0 = syn0.AddTo(l0.Transpose().MultiplyMatrices(deltaL1));
+                syn1 = syn1.AddValues(l1.Transpose().MultiplyMatrices(deltaL2));
+                syn0 = syn0.AddValues(l0.Transpose().MultiplyMatrices(deltaL1));
             }
 
             sw.Stop();
@@ -92,7 +92,7 @@ namespace MiscCodeTests
                     aggregator = func(aggregator,a[r,c]);
             return aggregator;
         }
-        internal static double[,] SubstractFrom(this double[,] a, double[,] b)
+        internal static double[,] SubstractValues(this double[,] a, double[,] b)
         {
             var result = new double[a.GetLength(0),a.GetLength(1)];
             for(var r = 0; r < a.GetLength(0); r++)//row
@@ -100,7 +100,7 @@ namespace MiscCodeTests
                     result[r,c] = a[r,c] - b[r,c];
             return result;
         }
-        internal static double[,] AddTo(this double[,] a, double[,] b)
+        internal static double[,] AddValues(this double[,] a, double[,] b)
         {
             var result = new double[a.GetLength(0),a.GetLength(1)];
             for(var r = 0; r < a.GetLength(0); r++)//row
