@@ -55,8 +55,8 @@ namespace MiscCodeTests
             foreach (var times in Enumerable.Range(0,60000))
             {
                 var l0 = input;
-                var l1 = l0.DotProductWith(syn0).Apply(Func);
-                var l2 = l1.DotProductWith(syn1).Apply(Func);
+                var l1 = l0.MultiplyMatrices(syn0).Apply(Func);
+                var l2 = l1.MultiplyMatrices(syn1).Apply(Func);
 
                 var errorsL2 = output.SubstractFrom(l2);
 
@@ -64,10 +64,10 @@ namespace MiscCodeTests
                     Console.WriteLine("Error:"+errorsL2.AggregateEach(0.0, (n,e) => n + Math.Abs(e)) / (errorsL2.Columns()*errorsL2.Rows()));
 
                 var deltaL2 = errorsL2.MultiplyValues(l2.Apply(FuncDerivative));
-                var errorL1 = deltaL2.DotProductWith(syn1.Transpose());
+                var errorL1 = deltaL2.MultiplyMatrices(syn1.Transpose());
                 var deltaL1 = errorL1.MultiplyValues(l1.Apply(FuncDerivative));
-                syn1 = syn1.AddTo(l1.Transpose().DotProductWith(deltaL2));
-                syn0 = syn0.AddTo(l0.Transpose().DotProductWith(deltaL1));
+                syn1 = syn1.AddTo(l1.Transpose().MultiplyMatrices(deltaL2));
+                syn0 = syn0.AddTo(l0.Transpose().MultiplyMatrices(deltaL1));
             }
 
             sw.Stop();
@@ -126,7 +126,7 @@ namespace MiscCodeTests
                     matrix[r,c] = rand.NextDouble()*2.0-1.0;
             return matrix;
         }
-        internal static double[,] DotProductWith(this double[,] a, double[,] b)
+        internal static double[,] MultiplyMatrices(this double[,] a, double[,] b)
         {
             // if you cannot use unsafe, then this is: 
             // multiplying matrices without the use of unsafe
