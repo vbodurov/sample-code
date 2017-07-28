@@ -178,8 +178,8 @@ namespace MiscCodeTests
             var rows = matrix.Rows();
             var cols = matrix.Columns();
             var result = new double[rows, cols];
-            for(var r = 0; r < matrix.Rows(); r++)//row
-                for(var c = 0; c < matrix.Columns(); c++)//column
+            for(var r = 0; r < rows; r++)//row
+                for(var c = 0; c < cols; c++)//column
                     result[r,c] = func(matrix[r,c]);
             return result;
         }
