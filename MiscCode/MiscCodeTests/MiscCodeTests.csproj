@@ -49,6 +49,10 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -69,6 +73,7 @@
   <ItemGroup>
     <Compile Include="BackPropagation.cs" />
     <Compile Include="BinarySearchTests.cs" />
+    <Compile Include="BuildNeuralNetworkDemo.cs" />
     <Compile Include="DeleteFiles.cs" />
     <Compile Include="GenerateIpData.cs" />
     <Compile Include="InheritanceTests.cs" />
@@ -77,6 +82,7 @@
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="ProjectionTests.cs" />
     <Compile Include="ReverseWordsTests.cs" />
+    <Compile Include="CustomNeuralNetDemo.cs" />
     <Compile Include="SpiralTests.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="SimpleNeuralNet.cs" />
@@ -105,9 +111,21 @@
     <None Include="App.config" />
     <None Include="Files\GeoLiteCity-Blocks.csv" />
     <None Include="Files\GeoLiteCity-Location.csv" />
+    <None Include="Files\Income\adult.data" />
+    <None Include="Files\Income\adult.names" />
+    <None Include="Files\Income\adult.test" />
+    <None Include="Files\Income\old.adult.names" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Files\Income\index.html" />
+    <Content Include="Files\Income\index_files\Large2.jpg" />
+    <Content Include="Files\Income\index_files\logo.gif" />
+    <Content Include="Files\Income\index_files\Logo_25blk.gif" />
+    <Content Include="Files\Income\index_files\ml.css" />
+    <Content Include="Files\Income\index_files\nsfe.gif" />
+    <Content Include="Files\Income\index_files\rexa.jpg" />
+    <Content Include="Files\Income\index_files\rexaSmall.jpg" />
     <Content Include="Files\Speech.wav" />
     <Content Include="Libs\UnityEngine.dll" />
   </ItemGroup>

@@ -38,7 +38,7 @@ namespace MiscCodeTests
 
             Console.WriteLine("Creating a " + numInput + "-" + numHidden +
                               "-" + numOutput + " neural network");
-            NeuralNetwork nn = new NeuralNetwork(numInput, numHidden, numOutput);
+            BackPropNeuralNet nn = new BackPropNeuralNet(numInput, numHidden, numOutput);
 
             int maxEpochs = 1000;
             double learnRate = 0.05;
@@ -133,8 +133,8 @@ namespace MiscCodeTests
             for (int i = 0; i < numRows; ++i)
                 result[i] = new double[numInput + numOutput]; // 1-of-N in last column
 
-            NeuralNetwork gnn =
-                new NeuralNetwork(numInput, numHidden, numOutput); // generating NN
+            BackPropNeuralNet gnn =
+                new BackPropNeuralNet(numInput, numHidden, numOutput); // generating NN
             gnn.SetWeights(weights);
 
             for (int r = 0; r < numRows; ++r) // for each row
@@ -202,7 +202,7 @@ namespace MiscCodeTests
     }
 
 
-    public class NeuralNetwork
+    public class BackPropNeuralNet
     {
         private int numInput; // number input nodes
         private int numHidden;
@@ -219,7 +219,7 @@ namespace MiscCodeTests
 
         private Random rnd;
 
-        public NeuralNetwork(int numInput, int numHidden, int numOutput)
+        public BackPropNeuralNet(int numInput, int numHidden, int numOutput)
         {
             this.numInput = numInput;
             this.numHidden = numHidden;
@@ -592,5 +592,5 @@ namespace MiscCodeTests
             }
             return bigIndex;
         }
-    } // NeuralNetwork
+    } // BuildNeuralNetwork
 }
