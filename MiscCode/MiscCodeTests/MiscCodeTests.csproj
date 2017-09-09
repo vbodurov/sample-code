@@ -73,8 +73,11 @@
   <ItemGroup>
     <Compile Include="BackPropagation.cs" />
     <Compile Include="BinarySearchTests.cs" />
-    <Compile Include="BuildNeuralNetworkDemo.cs" />
+    <Compile Include="BuildNeuralNetworkDemoSimplified.cs" />
+    <Compile Include="BuildNeuralNetworkDemoOriginal.cs" />
     <Compile Include="DeleteFiles.cs" />
+    <Compile Include="Extensions\AttayExtensions.cs" />
+    <Compile Include="Extensions\DoubleExtensions.cs" />
     <Compile Include="GenerateIpData.cs" />
     <Compile Include="InheritanceTests.cs" />
     <Compile Include="LogisticGradient.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="ProjectionTests.cs" />
     <Compile Include="ReverseWordsTests.cs" />
     <Compile Include="CustomNeuralNetDemo.cs" />
+    <Compile Include="OneDimensionalNeuralNet.cs" />
     <Compile Include="SpiralTests.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="SimpleNeuralNet.cs" />
@@ -106,28 +110,20 @@
     <Compile Include="SumOfPairTests.cs" />
     <Compile Include="TextToSpeech.cs" />
     <Compile Include="UnityTests.cs" />
+    <Compile Include="Utils\BezierFunc.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Files\GeoLiteCity-Blocks.csv" />
     <None Include="Files\GeoLiteCity-Location.csv" />
-    <None Include="Files\Income\adult.data" />
-    <None Include="Files\Income\adult.names" />
-    <None Include="Files\Income\adult.test" />
-    <None Include="Files\Income\old.adult.names" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files\Income\index.html" />
-    <Content Include="Files\Income\index_files\Large2.jpg" />
-    <Content Include="Files\Income\index_files\logo.gif" />
-    <Content Include="Files\Income\index_files\Logo_25blk.gif" />
-    <Content Include="Files\Income\index_files\ml.css" />
-    <Content Include="Files\Income\index_files\nsfe.gif" />
-    <Content Include="Files\Income\index_files\rexa.jpg" />
-    <Content Include="Files\Income\index_files\rexaSmall.jpg" />
     <Content Include="Files\Speech.wav" />
     <Content Include="Libs\UnityEngine.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

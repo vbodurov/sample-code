@@ -1,4 +1,5 @@
 ﻿using System;
+using MiscCodeTests.Extensions;
 using NUnit.Framework;
 
 namespace MiscCodeTests
@@ -9,12 +10,27 @@ namespace MiscCodeTests
         [Test]
         public void Test1()
         {
-            
+            var s = new double[4,3];
+
+            const int copyRowIndex = 2;
+
+            s[0,0] =    1;s[0,1] =    2;s[0,2] =    3;
+            s[1,0] =   10;s[1,1] =   20;s[1,2] =   30;
+            s[2,0] =  100;s[2,1] =  200;s[2,2] =  300;
+            s[3,0] = 1000;s[3,1] = 2000;s[3,2] = 3000;
+
+
+            var d = s.GetRow(copyRowIndex);
+
+            for(var i = 0; i < d.Length ; ++i)
+            {
+                Console.WriteLine(i + " = " + d[i]);
+            }
         }
         [Test]
         public void Test2()
         {
-            
+            Console.WriteLine("Test 2");
         }
         [Test]
         public void Test3()
