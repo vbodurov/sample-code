@@ -70,6 +70,14 @@ namespace MiscCodeTests
         {
             return Sigmoid(x) * (1.0 - Sigmoid(x)); 
         }
+        private static double Tanh(double x)
+        {
+            return Math.Tanh(x);
+        }
+        private static double TanhDerivative(double x)
+        {
+            return 1.0 - Tanh(x) * Tanh(x);
+        }
     }
 
     public interface ICustomNeuralNet
