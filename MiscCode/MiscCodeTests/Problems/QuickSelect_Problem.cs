@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class QuickSelectTests
+    public class QuickSelect_Problem
     {
         [Test]
         public void CanSelectAmongMany()
@@ -51,7 +51,7 @@ namespace MiscCodeTests
             }
             //when this returns, all elements of list[i] <= list[findIndex] iif i <= findIndex
         }
-        private static int Partition(float[] list, int startIndex, int endIndex, int pivotIndex)
+        static int Partition(float[] list, int startIndex, int endIndex, int pivotIndex)
         {
             float pivotValue = list[pivotIndex];
             list[pivotIndex] = list[startIndex];
@@ -73,7 +73,7 @@ namespace MiscCodeTests
             //now [startIndex, newPivotIndex] are <= to pivotValue && list[newPivotIndex] == pivotValue.
             return newPivotIndex;
         }
-        private static void Swap(float[] list, int index1, int index2)
+        static void Swap(float[] list, int index1, int index2)
         {
             float tmp = list[index1];
             list[index1] = list[index2];

@@ -1,10 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class MergeSortRecursiveTests
+    public class MergeSortRecursive_Problem
     {
         [Test]
         public void MergeSortTest()

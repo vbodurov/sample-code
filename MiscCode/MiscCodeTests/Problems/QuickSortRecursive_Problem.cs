@@ -1,10 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class QuickSortRecursiveTests
+    public class QuickSortRecursive_Problem
     {
         [Test]
         public void QuickSortTest()

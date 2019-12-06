@@ -1,9 +1,5 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.IO;
-using System.Linq;
-using Microsoft.Practices.ObjectBuilder2;
-using MiscCodeTests.Utils;
 using NUnit.Framework;
 
 // https://www.youtube.com/watch?v=9aHJ-FAzQaE
@@ -32,7 +28,7 @@ using NUnit.Framework;
 // You can use this code however you wish subject to the usual disclaimers
 // (use at your own risk, etc.)
 
-namespace MiscCodeTests
+namespace MiscCodeTests.NeuralNets
 {
     [TestFixture]
     public class BuildNeuralNetworkDemoSimplified

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class LongestPalindromeTests
+    public class LongestPalindrome_Problem
     {
         [Test]
         public void LongestPalindromeTest()

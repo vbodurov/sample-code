@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Microsoft.Practices.ObjectBuilder2;
-using MiscCodeTests.Extensions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using NUnit.Framework;
-using UnityEngine;
 using Random = System.Random;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.NeuralNets
 {
     //https://stevenmiller888.github.io/mind-how-to-build-a-neural-network/
     [TestFixture]

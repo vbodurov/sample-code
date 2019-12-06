@@ -2,10 +2,10 @@
 using System.Linq;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class ReverseWordsTests
+    public class ReverseWords_Problem
     {
         [Test]
         public void CanReverseWords()

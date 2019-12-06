@@ -10,7 +10,7 @@ namespace MiscCodeTests
         [Test]
         public void DeleteMeta()
         {
-            const string path = @"C:\Temp\Scripts";
+            const string path = @"C:\Temp\Unianio_Framework";
             var fsi = new FileSystemIterator(path);
             fsi.ProcessElement += (o, a) =>
                                   {

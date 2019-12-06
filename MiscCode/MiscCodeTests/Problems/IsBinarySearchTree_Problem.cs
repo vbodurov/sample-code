@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class IsBinarySearchTreeTests
+    public class IsBinarySearchTree_Problem
     {
         [Test]
         public void IsBinarySearchTreeTest()
@@ -45,7 +45,7 @@ namespace MiscCodeTests
             Assert.That(IsBinarySearchTree(incorrect, ref prev), Is.False, "not a BST");
         }
 
-        private static bool IsBinarySearchTree(Node node, ref Node prev)
+        static bool IsBinarySearchTree(Node node, ref Node prev)
         {
             if(node != null)
             {

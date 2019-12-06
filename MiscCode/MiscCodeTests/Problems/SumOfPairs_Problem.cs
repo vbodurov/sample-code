@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class SumOfPairTests
+    public class SumOfPairs_Problem
     {
         [Test]
         public void SumOfPairTest()

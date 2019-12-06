@@ -1,11 +1,9 @@
-﻿using System;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class ReverseLinkedListTests
+    public class ReverseLinkedList_Problem
     {
 
         [Test]

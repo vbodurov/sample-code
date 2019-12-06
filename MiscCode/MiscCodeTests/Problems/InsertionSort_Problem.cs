@@ -1,32 +1,36 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class BubbleSortTests
+    public class InsertionSort_Problem
     {
         [Test]
-        public void BubbleSortTest()
+        public void InsertionSortTest()
         {
             int[] numbers = { 3, 8, 7, 5, 2, 1, 9, 6, 4 };
 
-            BubbleSort(numbers);
+            InsertionSort(numbers);
 
             for (int i = 0; i < 9; i++)
                 Console.WriteLine(numbers[i]);
         }
 
-        private void BubbleSort(int[] numbers)
+        private void InsertionSort(int[] numbers)
         {
-            for (int i = 1; i < numbers.Length; ++i)
+            for (int i = 1; i < numbers.Length; i++)
             {
-                for (int j = 0; j < numbers.Length - i; ++j)
+                int j = i;
+                while (j > 0)
                 {
-                    if (numbers[j] > numbers[j + 1])
+                    if (numbers[j - 1] > numbers[j])
                     {
-                        Swap(numbers, j, j + 1);
+                        Swap(numbers, j - 1, j);
+                        j--;
                     }
+                    else
+                        break;
                 }
             }
         }

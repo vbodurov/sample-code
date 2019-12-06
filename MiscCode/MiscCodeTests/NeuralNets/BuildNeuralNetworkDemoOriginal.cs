@@ -2,7 +2,7 @@
 using System.IO;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.NeuralNets
 {
     [TestFixture]
     public class BuildNeuralNetworkDemoOriginal

@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.NeuralNets
 {
     [TestFixture]
     public class SimpleNeuralNet

@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
-    public class FloydCycleFindingTests
+    public class FloydCycleFinding_Problem
     {
         [Test]
         public void FloydCycleFindingTest()
@@ -25,7 +24,7 @@ namespace MiscCodeTests
             Console.WriteLine(r);
         }
 
-        private static bool FloydCycleDetection(LinkedList list)
+        static bool FloydCycleDetection(LinkedList list)
         {
             if (list == null || list.Head == null || list.Head.Next == null) return false;
 

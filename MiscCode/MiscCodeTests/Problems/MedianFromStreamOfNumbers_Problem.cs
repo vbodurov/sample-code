@@ -2,10 +2,10 @@
 using MiscCodeTests.Model;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class MedianFromStreamOfNumbersTests
+    public class MedianFromStreamOfNumbers_Problem
     {
         [Test]
         public void CanGetMedianFromStreamOfIntegers()

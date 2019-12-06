@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class SpiralTests
+    public class Spiral_Problem
     {
         [Test]
         [TestCase(0,"0,0")]

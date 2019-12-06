@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class QuickSortLinkedListTests
+    public class QuickSortLinkedList_Problem
     {
         [Test]
         public void QuickSortTest()
@@ -20,8 +20,7 @@ namespace MiscCodeTests
                 Console.WriteLine(number);
                 
         }
-
-        private void QuickSortRecursive(LinkedListNode<int> left, LinkedListNode<int> right)
+        void QuickSortRecursive(LinkedListNode<int> left, LinkedListNode<int> right)
         {
             // For Recusrion
             if (left != right)
@@ -36,7 +35,7 @@ namespace MiscCodeTests
             }
         }
 
-        private LinkedListNode<int> Partition(LinkedListNode<int> left, LinkedListNode<int> right)
+        LinkedListNode<int> Partition(LinkedListNode<int> left, LinkedListNode<int> right)
         {
             var pivot = left;
             while (true)
@@ -52,8 +51,7 @@ namespace MiscCodeTests
                 Swap(left, right);
             }
         }
-
-        private void Swap(LinkedListNode<int> left, LinkedListNode<int> right)
+        void Swap(LinkedListNode<int> left, LinkedListNode<int> right)
         {
             var leftVal = left.Value;
             var rightVal = right.Value;

@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.NeuralNets
 {
     [TestFixture]
     public class BackPropagation

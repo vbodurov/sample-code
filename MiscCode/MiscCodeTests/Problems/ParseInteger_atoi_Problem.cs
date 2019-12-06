@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class ParseIntegerTests
+    public class ParseInteger_atoi_Problem
     {
 
         [Test]

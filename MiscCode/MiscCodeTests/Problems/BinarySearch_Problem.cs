@@ -1,9 +1,9 @@
 ﻿using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class BinarySearchTests
+    public class BinarySearch_Problem
     {
         [Test]
         public void CanFindElement()

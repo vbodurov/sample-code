@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using NUnit.Framework;
 
-namespace MiscCodeTests
+namespace MiscCodeTests.Problems
 {
     [TestFixture]
-    public class FibonacciTests
+    public class Fibonacci_Problem
     {
         [Test]
         public void CanComputeRecursive()
@@ -62,7 +62,7 @@ namespace MiscCodeTests
 
         }
 
-        private static decimal FibLinear(int n)
+        static decimal FibLinear(int n)
         {
             if (n == 0) return 0;
             if (n <= 2) return 1;
@@ -77,7 +77,7 @@ namespace MiscCodeTests
             }
             return curr;
         }
-        private static decimal FibRecWithCache(int n, Dictionary<int, decimal> cache = null)
+        static decimal FibRecWithCache(int n, Dictionary<int, decimal> cache = null)
         {
             if (cache == null) cache = new Dictionary<int, decimal>();
             if (n == 0) return 0;
@@ -87,14 +87,14 @@ namespace MiscCodeTests
                     ? found
                     : cache[n] = FibRecWithCache(n - 1, cache) + FibRecWithCache(n - 2, cache);
         }
-        private static decimal FibRec(int n)
+        static decimal FibRec(int n)
         {
             if (n == 0) return 0;
             if (n <= 2) return 1;
             return FibRec(n - 1) + FibRec(n - 2);
         }
         // O(log2 n)
-        private static decimal FibMatrix(int n)
+        static decimal FibMatrix(int n)
         {
 
             int nAbs = Math.Abs(n);
@@ -112,7 +112,7 @@ namespace MiscCodeTests
             }
             return result[1,1] * ((n < 0) ? -1 : 1);
         }
-        private static decimal[,] MultiplyMatrix(decimal[,] mat1, decimal[,] mat2)
+        static decimal[,] MultiplyMatrix(decimal[,] mat1, decimal[,] mat2)
         {
             return new [,] {
                 { mat1[0,0]*mat2[0,0] + mat1[0,1]*mat2[1,0], mat1[0,0]*mat2[0,1] + mat1[0,1]*mat2[1,1] },
