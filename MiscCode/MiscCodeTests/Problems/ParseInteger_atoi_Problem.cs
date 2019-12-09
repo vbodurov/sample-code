@@ -21,7 +21,7 @@ namespace MiscCodeTests.Problems
         {
             if (num == null) throw new NullReferenceException("Expecting num to be integer found NULL");
             num = num.Trim();
-            if (num == string.Empty) throw new ArgumentException("Expecting num to be integer found empty", "num");
+            if (num == string.Empty) throw new ArgumentException("Expecting num to be integer found empty", nameof(num));
             
 
             int result = 0; 

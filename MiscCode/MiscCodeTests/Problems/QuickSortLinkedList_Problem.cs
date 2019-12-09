@@ -54,8 +54,7 @@ namespace MiscCodeTests.Problems
         void Swap(LinkedListNode<int> left, LinkedListNode<int> right)
         {
             var leftVal = left.Value;
-            var rightVal = right.Value;
-            left.Value = rightVal;
+            left.Value = right.Value;
             right.Value = leftVal;
         }
     }
