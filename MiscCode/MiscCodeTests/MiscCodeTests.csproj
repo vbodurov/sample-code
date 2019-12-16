@@ -95,9 +95,12 @@
     <Compile Include="Model\BaseHeap.cs" />
     <Compile Include="Problems\DivideTwoNumbers_Problem.cs" />
     <Compile Include="Problems\ReverseSingleLinkedList_Problem.cs" />
+    <Compile Include="Problems\SerializeTree_Problem.cs" />
     <Compile Include="Problems\SortedArrayToBinaryTree_Problem.cs" />
     <Compile Include="Problems\Subsets_Problem.cs" />
     <Compile Include="Problems\Triangle_Problem.cs" />
+    <Compile Include="Problems\Trie_Problem.cs" />
+    <Compile Include="Problems\WordLadder_Problem.cs" />
     <Compile Include="ProjectionTests.cs" />
     <Compile Include="Problems\ReverseWords_Problem.cs" />
     <Compile Include="NeuralNets\CustomNeuralNetDemo.cs" />

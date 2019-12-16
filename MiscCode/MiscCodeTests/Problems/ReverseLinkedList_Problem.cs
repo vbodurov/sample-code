@@ -40,11 +40,11 @@ namespace MiscCodeTests.Problems
             }
             
         }
-        private void ReverseRecursive(List list)
+        void ReverseRecursive(List list)
         {
             ReverseNode(list, list.Head);
         }
-        private void ReverseNode(List list, Node node, Node newNext = null)
+        void ReverseNode(List list, Node node, Node newNext = null)
         {
             var next = node.Next;
             node.Next = newNext;
@@ -64,7 +64,7 @@ namespace MiscCodeTests.Problems
             internal int Value;
             public override string ToString() { return "{"+Value+"}"; }
         }
-        private string ListToString(List list)
+        string ListToString(List list)
         {
             var all = new System.Collections.Generic.List<int>();
             var node = list.Head;
@@ -75,7 +75,7 @@ namespace MiscCodeTests.Problems
             }
             return string.Join(";", all);
         }
-        private List GetList()
+        List GetList()
         {
             return new List
             {

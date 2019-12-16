@@ -41,11 +41,11 @@ namespace MiscCodeTests.Problems
         }
         ListNode ReverseList(ListNode root)
         {
-            ListNode curr = root;
+            var curr = root;
             ListNode tmp2 = null;
             while (curr != null)
             {
-                ListNode tmp1 = curr.next;
+                var tmp1 = curr.next;
                 curr.next = tmp2;
                 tmp2 = curr;
                 curr = tmp1;

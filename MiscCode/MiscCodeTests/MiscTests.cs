@@ -8,21 +8,21 @@ namespace MiscCodeTests
     [TestFixture]
     public class MiscTests
     {
-        Action _f;
         [Test]
         public void Test1()
         {
-            var f1 = new Action(() => Console.WriteLine("1"));
-            var f2 = new Action(() => Console.WriteLine("2"));
-            var f3 = new Action(() => Console.WriteLine("3"));
+            var sd = new SortedDictionary<int, int>(Comparer<int>.Create((a,b)=>-a.CompareTo(b)));
+            sd.Add(1, 1);
+            sd.Add(100, 100);
+            sd.Add(2, 2);
+            sd.Add(15, 15);
+            sd.Add(10, 10);
+            foreach (var e in sd)
+            {
+                Console.WriteLine(e.Key+"="+e.Value);
+            }
 
-            _f += f1;
-            _f += f2;
-            _f += f3;
 
-            _f -= f1;
-
-            _f?.Invoke();
         }
         [Test]
         public void Test2()

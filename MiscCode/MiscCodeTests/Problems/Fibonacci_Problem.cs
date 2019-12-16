@@ -51,16 +51,6 @@ namespace MiscCodeTests.Problems
             //Elapsed:5 result: 354224848179261915075
         }
 
-        [Test]
-        public void Perf()
-        {
-            var sw = Stopwatch.StartNew();
-            var result = FibRecWithCache(138);
-            sw.Stop();
-            Console.WriteLine("Elapsed:" + sw.ElapsedMilliseconds + " result: " + result);
-            //Elapsed:1133 result: 102334155
-
-        }
 
         static decimal FibLinear(int n)
         {
@@ -82,8 +72,7 @@ namespace MiscCodeTests.Problems
             if (cache == null) cache = new Dictionary<int, decimal>();
             if (n == 0) return 0;
             if (n <= 2) return 1;
-            decimal found;
-            return cache.TryGetValue(n, out found) 
+            return cache.TryGetValue(n, out var found) 
                     ? found
                     : cache[n] = FibRecWithCache(n - 1, cache) + FibRecWithCache(n - 2, cache);
         }
@@ -110,7 +99,7 @@ namespace MiscCodeTests.Problems
                 number = MultiplyMatrix(number, number);
                 nAbs /= 2;
             }
-            return result[1,1] * ((n < 0) ? -1 : 1);
+            return result[1, 1] * ((n < 0) ? -1 : 1);
         }
         static decimal[,] MultiplyMatrix(decimal[,] mat1, decimal[,] mat2)
         {
