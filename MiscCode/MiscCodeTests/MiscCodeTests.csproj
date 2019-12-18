@@ -72,10 +72,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ListNode.cs" />
     <Compile Include="Problems\CoinChange_Problem.cs" />
     <Compile Include="Problems\CountAndSay_Problem.cs" />
     <Compile Include="Problems\DuplicatesInArray_Problem.cs" />
     <Compile Include="Problems\FirstAndLastPositionSortedArray_Problem.cs" />
+    <Compile Include="Problems\MedianOf2Arrays_Problem.cs" />
     <Compile Include="Problems\PairsToHierarchy_Problem.cs" />
     <Compile Include="Problems\QuickSortSingleLinkedList_Problem.cs" />
     <Compile Include="Problems\RemoveElement_ArrayProblem.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="TextToSpeech.cs" />
     <Compile Include="UnityTests.cs" />
     <Compile Include="Utils\BezierFunc.cs" />
+    <Compile Include="Utils\ListNodeUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

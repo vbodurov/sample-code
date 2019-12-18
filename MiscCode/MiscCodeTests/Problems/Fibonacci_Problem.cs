@@ -5,6 +5,10 @@ using NUnit.Framework;
 
 namespace MiscCodeTests.Problems
 {
+    // 1 + 1 = 2
+    // 1 + 2 = 3
+    // 2 + 3 = 5
+    // 1,1,2,3,5,8,13,21,34,55,89,144,233,377
     [TestFixture]
     public class Fibonacci_Problem
     {

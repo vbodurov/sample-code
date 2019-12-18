@@ -26,7 +26,7 @@ namespace MiscCodeTests.Problems
 
         static bool FloydCycleDetection(LinkedList list)
         {
-            if (list == null || list.Head == null || list.Head.Next == null) return false;
+            if (list?.Head?.Next == null) return false;
 
             var tortoise = list.Head.Next;
             var hare = list.Head.Next.Next;

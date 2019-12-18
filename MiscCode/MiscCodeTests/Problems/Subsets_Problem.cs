@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management.Instrumentation;
+using System.Text;
 using Microsoft.Practices.ObjectBuilder2;
 using NUnit.Framework;
 
@@ -59,6 +61,37 @@ namespace MiscCodeTests.Problems
             {
                 current.Add(letters[i]);
                 PrintLettersInternal(i + 1, letters, current, subsets);
+                current.RemoveAt(current.Count - 1);
+            }
+        }
+
+
+
+        [Test]
+        [TestCase("ABC")]
+        public void PrintLetters2(string letters)
+        {
+
+            IList<IList<char>> subsets = new List<IList<char>>();
+            var visited = new bool[letters.Length];
+
+            PrintLettersInternal2(visited, letters, new List<char>(), subsets);
+            foreach (var s in subsets)
+            {
+                Console.WriteLine("|" + s.JoinStrings(","));
+            }
+        }
+        void PrintLettersInternal2(bool[] visited, string letters, IList<char> current, IList<IList<char>> subsets)
+        {
+            if(current.Count == letters.Length) subsets.Add(new List<char>(current));
+
+            for (int i = 0; i < letters.Length; i++)
+            {
+                if (visited[i]) continue;
+                current.Add(letters[i]);
+                visited[i] = true;
+                PrintLettersInternal2(visited, letters, current, subsets);
+                visited[i] = false;
                 current.RemoveAt(current.Count - 1);
             }
         }

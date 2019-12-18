@@ -60,13 +60,18 @@ namespace MiscCodeTests.Problems
             int storeIndex = startIndex + 1;//no need to store @ pivot item, it's good already.
             //Invariant: startIndex < storeI <= endIndex
             while (storeIndex < endIndex && list[storeIndex] <= pivotValue)
+            {
                 ++storeIndex;
+            }
             for (var i = storeIndex + 1; i < endIndex; ++i)
+            {
                 if (list[i] <= pivotValue)
                 {
                     Swap(list, i, storeIndex);
                     ++storeIndex;
                 }
+            }
+                
             int newPivotIndex = storeIndex - 1;
             list[startIndex] = list[newPivotIndex];
             list[newPivotIndex] = pivotValue;

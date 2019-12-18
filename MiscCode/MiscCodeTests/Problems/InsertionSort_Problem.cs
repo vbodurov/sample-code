@@ -34,7 +34,7 @@ namespace MiscCodeTests.Problems
                 }
             }
         }
-        private static void Swap(int[] arr, int a, int b)
+        static void Swap(int[] arr, int a, int b)
         {
             int temp = arr[b];
             arr[b] = arr[a];
