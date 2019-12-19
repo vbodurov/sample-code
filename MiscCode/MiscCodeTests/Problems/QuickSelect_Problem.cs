@@ -20,8 +20,9 @@ namespace MiscCodeTests.Problems
                 arr[i] = rand.Next(5, 10000000);
             }
 
+            var indexToFind = arr.Length / 2;
             var sw = Stopwatch.StartNew();
-            var med = QuickSelect(arr, arr.Length / 2);
+            var med = QuickSelect(arr, indexToFind);
             sw.Stop();
             var toBytes = GC.GetTotalMemory(false);
             Console.WriteLine("median:" + med);

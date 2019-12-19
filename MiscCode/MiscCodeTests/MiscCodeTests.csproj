@@ -78,6 +78,7 @@
     <Compile Include="Problems\DuplicatesInArray_Problem.cs" />
     <Compile Include="Problems\FirstAndLastPositionSortedArray_Problem.cs" />
     <Compile Include="Problems\MedianOf2Arrays_Problem.cs" />
+    <Compile Include="Problems\MergeSortSingleLinkedList_Problem.cs" />
     <Compile Include="Problems\PairsToHierarchy_Problem.cs" />
     <Compile Include="Problems\QuickSortSingleLinkedList_Problem.cs" />
     <Compile Include="Problems\RemoveElement_ArrayProblem.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Problems\SerializeTree_Problem.cs" />
     <Compile Include="Problems\SortedArrayToBinaryTree_Problem.cs" />
     <Compile Include="Problems\Subsets_Problem.cs" />
+    <Compile Include="Problems\TreasureIsland_Problem.cs" />
     <Compile Include="Problems\Triangle_Problem.cs" />
     <Compile Include="Problems\Trie_Problem.cs" />
     <Compile Include="Problems\WordLadder_Problem.cs" />
