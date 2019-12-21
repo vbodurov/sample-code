@@ -72,18 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ListNode.cs" />
-    <Compile Include="Problems\CoinChange_Problem.cs" />
-    <Compile Include="Problems\CountAndSay_Problem.cs" />
-    <Compile Include="Problems\DuplicatesInArray_Problem.cs" />
-    <Compile Include="Problems\FirstAndLastPositionSortedArray_Problem.cs" />
-    <Compile Include="Problems\MedianOf2Arrays_Problem.cs" />
-    <Compile Include="Problems\MergeSortSingleLinkedList_Problem.cs" />
-    <Compile Include="Problems\PairsToHierarchy_Problem.cs" />
-    <Compile Include="Problems\QuickSortSingleLinkedList_Problem.cs" />
-    <Compile Include="Problems\RemoveElement_ArrayProblem.cs" />
     <Compile Include="NeuralNets\BackPropagation.cs" />
-    <Compile Include="Problems\BinarySearch_Problem.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoSimplified.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoOriginal.cs" />
     <Compile Include="CustomAwaiterTests.cs" />
@@ -93,48 +82,18 @@
     <Compile Include="GenerateIpData.cs" />
     <Compile Include="InheritanceTests.cs" />
     <Compile Include="LogisticGradient.cs" />
-    <Compile Include="Problems\LongestCommonPrefix_Problem.cs" />
-    <Compile Include="Problems\MedianFromStreamOfNumbers_Problem.cs" />
-    <Compile Include="Model\BaseHeap.cs" />
-    <Compile Include="Problems\DivideTwoNumbers_Problem.cs" />
-    <Compile Include="Problems\ReverseSingleLinkedList_Problem.cs" />
-    <Compile Include="Problems\SerializeTree_Problem.cs" />
-    <Compile Include="Problems\SortedArrayToBinaryTree_Problem.cs" />
-    <Compile Include="Problems\Subsets_Problem.cs" />
-    <Compile Include="Problems\TreasureIsland_Problem.cs" />
-    <Compile Include="Problems\Triangle_Problem.cs" />
-    <Compile Include="Problems\Trie_Problem.cs" />
-    <Compile Include="Problems\WordLadder_Problem.cs" />
     <Compile Include="ProjectionTests.cs" />
-    <Compile Include="Problems\ReverseWords_Problem.cs" />
     <Compile Include="NeuralNets\CustomNeuralNetDemo.cs" />
     <Compile Include="NeuralNets\OneDimensionalNeuralNet.cs" />
-    <Compile Include="Problems\RomanToArabic_Problem.cs" />
-    <Compile Include="Problems\Spiral_Problem.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="NeuralNets\SimpleNeuralNet.cs" />
     <Compile Include="TexasHoldemTests.cs" />
-    <Compile Include="Problems\BubbleSort_Problem.cs" />
-    <Compile Include="Problems\Fibonacci_Problem.cs" />
-    <Compile Include="Problems\FloydCycleFinding_Problem.cs" />
-    <Compile Include="Problems\InsertionSort_Problem.cs" />
-    <Compile Include="Problems\IsBinarySearchTree_Problem.cs" />
     <Compile Include="LeftLeaningRedBlackTree.cs" />
-    <Compile Include="Problems\LongestPalindrome_Problem.cs" />
-    <Compile Include="Problems\MergeSortRecursive_Problem.cs" />
-    <Compile Include="Problems\ParseInteger_atoi_Problem.cs" />
     <Compile Include="MiscTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Problems\QuickSelect_Problem.cs" />
-    <Compile Include="Problems\QuickSortIterative_Problem.cs" />
-    <Compile Include="Problems\QuickSortLinkedList_Problem.cs" />
-    <Compile Include="Problems\QuickSortRecursive_Problem.cs" />
-    <Compile Include="Problems\ReverseLinkedList_Problem.cs" />
-    <Compile Include="Problems\SumOfPairs_Problem.cs" />
     <Compile Include="TextToSpeech.cs" />
     <Compile Include="UnityTests.cs" />
     <Compile Include="Utils\BezierFunc.cs" />
-    <Compile Include="Utils\ListNodeUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
