@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CodingProblemsTests.Extensions;
 using NUnit.Framework;
 
 namespace CodingProblemsTests
@@ -7,56 +8,49 @@ namespace CodingProblemsTests
     [TestFixture]
     public class LongestPalindrome_Problem
     {
+        //https://leetcode.com/problems/longest-palindromic-substring/
         [Test]
-        public void LongestPalindromeTest()
+        [TestCase("babad", "bab")]
+        [TestCase("cbbd", "bb")]
+        [TestCase("asdfasdferrefwtewg", "ferref")]
+        [TestCase("a", "a")]
+        public void LongestPalindromeTest(string s, string expect)
         {
-            Console.WriteLine(GetLongestPalindromeLength("suberebus"));
-
+            var result = new Solution().LongestPalindrome(s);
+            Assert.That(result, Is.EqualTo(expect));
         }
 
-
-
-        public static int GetLongestPalindromeLength(string seq)
+        public class Solution
         {
-            int Longest = 0;
-            List<int> l = new List<int>();
-            int i = 0;
-            int palLen = 0;
-            int s = 0;
-            int e = 0;
-            while (i < seq.Length)
+            public string LongestPalindrome(string s)
             {
-                if (i > palLen && seq[i - palLen - 1] == seq[i])
+                if (string.IsNullOrEmpty(s)) return "";
+                int start = 0, length = 0;
+                for (int i = 0; i < s.Length; i++)
                 {
-                    palLen += 2;
-                    i += 1;
-                    continue;
-                }
-                l.Add(palLen);
-                Longest = Math.Max(Longest, palLen);
-                s = l.Count - 2;
-                e = s - palLen;
-                bool found = false;
-                for (int j = s; j > e; j--)
-                {
-                    int d = j - e - 1;
-                    if (l[j] == d)
+                    int len1 = ExpandAroundCenter(s, i, i);
+                    int len2 = ExpandAroundCenter(s, i, i + 1);
+                    int currLen = Math.Max(len1, len2);
+                    if (currLen > length)
                     {
-                        palLen = d;
-                        found = true;
-                        break;
+                        start = i - (currLen - 1) / 2;
+                        length = currLen;
                     }
-                    l.Add(Math.Min(d, l[j]));
                 }
-                if (!found)
-                {
-                    palLen = 1;
-                    i += 1;
-                }
+                return s.Substring(start, length);
             }
-            l.Add(palLen);
-            Longest = Math.Max(Longest, palLen);
-            return Longest;
+            int ExpandAroundCenter(string s, int left, int right)
+            {
+                var length = 0;
+                while (left >= 0 && right < s.Length && s[left] == s[right])
+                {
+                    length += left == right ? 1 : 2;
+                    --left;
+                    ++right;
+                    if(left < 0 || right >= s.Length) break;
+                }
+                return length;
+            }
         }
     }
 }
