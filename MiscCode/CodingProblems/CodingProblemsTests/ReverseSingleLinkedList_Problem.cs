@@ -12,40 +12,49 @@ namespace CodingProblemsTests
 
         [Test]
         [TestCase(new[]{0,1,2,3,4,5,6,7,8,9})]
-        public void ReverseSingleLinkedList(int[] array)
+        [TestCase(new[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 })]
+        public void Reverse_SinglyLinkedList_Iterative(int[] array)
         {
-            ListNode prev = null;
-            ListNode head = null;
-            foreach (var i in array)
-            {
-                var curr = new ListNode(i);
-                if (head == null) head = curr;
-                if (prev != null) prev.next = curr;
-                prev = curr;
-            }
-            head = ReverseList(head);
+            var head = array.ToSinglyLinkedList();
 
-            var result = new List<int>();
-            var node = head;
-            while (node != null)
-            {
-                result.Add(node.val);
-                node = node.next;
-            }
-            Assert.That(result.JoinStrings(","), Is.EqualTo(array.Reverse().JoinStrings(",")));
-        }
-        ListNode ReverseList(ListNode root)
-        {
-            var curr = root;
-            ListNode tmp2 = null;
+            ListNode prev = null;
+            var curr = head;
             while (curr != null)
             {
-                var tmp1 = curr.next;
-                curr.next = tmp2;
-                tmp2 = curr;
-                curr = tmp1;
+                var next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
             }
-            return tmp2;
+            head = prev;
+
+            Assert.That(head.ToArray().JoinStrings(","), Is.EqualTo(array.Reverse().JoinStrings(",")));
+        }
+
+
+        [Test]
+        [TestCase(new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 })]
+        [TestCase(new[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 })]
+        public void Reverse_SinglyLinkedList_Recursive(int[] array)
+        {
+            var head = array.ToSinglyLinkedList();
+
+            ListNode prev = null;
+            ReverseListNode(head, ref prev);
+
+            Assert.That(prev.ToArray().JoinStrings(","), Is.EqualTo(array.Reverse().JoinStrings(",")));
+        }
+
+        void ReverseListNode(ListNode curr, ref ListNode prev)
+        {
+            if (curr == null) return;
+
+            var next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+
+            ReverseListNode(curr, ref prev);
         }
     }
 }

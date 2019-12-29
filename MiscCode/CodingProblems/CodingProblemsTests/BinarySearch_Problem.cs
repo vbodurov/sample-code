@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework;
 
 namespace CodingProblemsTests
@@ -24,20 +25,20 @@ namespace CodingProblemsTests
         static bool TryFindWithBinarySearchIterative(int[] arr, int target)
         {
             if (arr == null || arr.Length == 0) return false;
-
+            
             var len = arr.Length;
-            var start = 0;
-            var end = len - 1;
-            while (start < end)
+            var l = 0;
+            var r = len - 1;
+            while (l < r)
             {
-                var pivotInx = (end - start) / 2 + start;
+                var pivotInx = (r - l) / 2 + l;
                 var pivotVal = arr[pivotInx];
 
                 if (pivotVal == target) return true;
-                if (pivotVal < target) start = pivotInx + 1;
-                else if (pivotVal > target) end = pivotInx;
+                if (pivotVal < target) l = pivotInx + 1;
+                else if (pivotVal > target) r = pivotInx - 1;
             }
-            return arr[start] == target;
+            return arr[l] == target;
         }
 
         [Test]

@@ -24,6 +24,8 @@ namespace CodingProblemsTests.Utils
             var parts = str
                 .Replace(" ", "")
                 .Replace("\t", "")
+                .Replace("\n", "")
+                .Replace("\r", "")
                 .Trim(new []{'[',']'})
                 .Split(new string[] {"],["}, StringSplitOptions.RemoveEmptyEntries)
                 ;
