@@ -16,7 +16,15 @@ namespace CodingProblemsTests.Utils
                     .ToArray()
                 ;
         }
-
+        public static int[] ToListOfInts(string str)
+        {
+            return str
+                    .Trim(new[] { '[', ']', ' ', '\t' })
+                    .Split(",")
+                    .Select(int.Parse)
+                    .ToArray()
+                ;
+        }
         public static IList<IList<int>> ToListOfLists(string str)
         {
             if (string.IsNullOrEmpty(str)) return null;

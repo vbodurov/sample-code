@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using CodingProblemsTests.Extensions;
 using NUnit.Framework;
 
 namespace CodingProblemsTests
@@ -8,89 +10,77 @@ namespace CodingProblemsTests
     public class QuickSortIterative_Problem
     {
         [Test]
-        public void QuickSortTest()
+        [TestCase("1")]
+        [TestCase("1,1")]
+        [TestCase("1,1,2")]
+        [TestCase("3,8,7,5,2,1,9,6,4")]
+        [TestCase("100,-10,1,2,3,5,16")]
+        [TestCase("11,55,1,2,5,5,111,-1")]
+        [TestCase("9,8,7")]
+        [TestCase("1,2,3")]
+        [TestCase("1,0,0,0,1")]
+        [TestCase("0,1,1,1,0")]
+        public void QuickSortTest(string str)
         {
-            int[] numbers = { 3, 8, 7, 5, 2, 1, 9, 6, 4 };
-
+            int[] numbers = str.Split(',').Select(s => s.Trim()).Select(int.Parse).ToArray();
+            var expect = numbers.OrderBy(e => e).JoinStrings(",");
 
             QuickSortIterative(numbers, 0, numbers.Length - 1);
-
-
-            for (int i = 0; i < 9; i++)
-                Console.WriteLine(numbers[i]);
+            
+            Console.WriteLine(numbers.JoinStrings(","));
+            Assert.That(numbers.JoinStrings(","), Is.EqualTo(expect));
         }
-
-        private static int Partition(int[] numbers, int left, int right)
+        static int Partition(int[] numbers, int leftIndex, int rightIndex)
         {
-            int pivot = numbers[left];
-            while (true)
+            var i = leftIndex;
+            int j = leftIndex;
+            int pivotValue = numbers[rightIndex];
+            for (; j < rightIndex; ++j)
             {
-                while (numbers[left] < pivot)
-                    left++;
-
-                while (numbers[right] > pivot)
-                    right--;
-
-                if (left < right)
+                if (numbers[j] <= pivotValue)
                 {
-                    Swap(numbers, left, right);
-                }
-                else
-                {
-                    return right;
+                    Swap(numbers, i, j);
+                    ++i;
                 }
             }
+            Swap(numbers, i, rightIndex);
+            return i;
         }
 
-        private static void Swap(int[] arr, int a, int b)
+        static void Swap(int[] arr, int a, int b)
         {
+            if (a == b) return;
             int temp = arr[b];
             arr[b] = arr[a];
             arr[a] = temp;
         }
 
-        struct QuickPosInfo
-        {
-            public int left;
-            public int right;
-        };
-
-        private static void QuickSortIterative(int[] numbers, int left, int right)
+        static void QuickSortIterative(int[] numbers, int left, int right)
         {
 
             if (left >= right)
                 return; // Invalid index range
 
-            var list = new List<QuickPosInfo>();
+            var queue = new Queue<(int left, int right)>();
 
-            QuickPosInfo info;
-            info.left = left;
-            info.right = right;
-            list.Add(info);
+            queue.Enqueue((left: left, right: right));
 
-            while (true)
+            while (queue.Count > 0)
             {
-                if (list.Count == 0)
-                    break;
+                var first = queue.Dequeue();
+                left = first.left;
+                right = first.right;
+                
+                int pivotIndex = Partition(numbers, left, right);
 
-                left = list[0].left;
-                right = list[0].right;
-                list.RemoveAt(0);
-
-                int pivot = Partition(numbers, left, right);
-
-                if (pivot > 1)
+                if (left < pivotIndex - 1)
                 {
-                    info.left = left;
-                    info.right = pivot - 1;
-                    list.Add(info);
+                    queue.Enqueue((left: left, right: pivotIndex - 1));
                 }
 
-                if (pivot + 1 < right)
+                if (pivotIndex + 1 < right)
                 {
-                    info.left = pivot + 1;
-                    info.right = right;
-                    list.Add(info);
+                    queue.Enqueue((left: pivotIndex + 1, right: right));
                 }
             }
         }

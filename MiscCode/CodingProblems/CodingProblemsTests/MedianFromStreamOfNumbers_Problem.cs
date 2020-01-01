@@ -14,8 +14,8 @@ namespace CodingProblemsTests
             var expectMedian = new[] { 5, 10, 5, 4, 3, 4, 5, 6,  7, 6,  7, 6 };
             var median = array[0];
 
-            var left  = new MaxHeap();
-            var right = new MinHeap();
+            var left  = new Max_Heap();
+            var right = new Min_Heap();
 
             for (var i = 0; i < array.Length; ++i )
             {
@@ -26,7 +26,7 @@ namespace CodingProblemsTests
             }
         }
 
-        public int AddNumberAndGetMedian(int e, int prevMedian, BaseHeap left, BaseHeap right)
+        public int AddNumberAndGetMedian(int e, int prevMedian, Base_Heap left, Base_Heap right)
         {
             var leftCount = left.GetCount();
             var rightCount = right.GetCount();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CodingProblemsTests.Extensions;
+using CodingProblemsTests.Utils;
 using NUnit.Framework;
 
 namespace CodingProblemsTests
@@ -10,22 +11,28 @@ namespace CodingProblemsTests
     public class SortTwoNumbers_Problem
     {
         [Test]
-        [TestCase(1, new int[] { 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0 })]
-        [TestCase(2, new int[] { 0, 1 })]
-        [TestCase(3, new int[] { 1, 0 })]
-        [TestCase(4, new int[] { 1, 0, 1, 0 })]
-        [TestCase(5, new int[] { 0, 1, 0, 1 })]
-        [TestCase(6, new int[] { 0, 1, 0, 0, 0, 1 })]
-        [TestCase(7, new int[] { 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1 })]
-        [TestCase(8, new int[] { 0, 0, 0, 0, 1, 1, 1, 0, 1 })]
-        [TestCase(9, new int[] { 0, 0, 0, 0, 1 })]
-        [TestCase(10, new int[] { 0, 0, 0, 0, 1, 0, 0, 0, 0 })]
-        [TestCase(11, new int[] { 0, 0, 0, 0 })]
-        [TestCase(11, new int[] { 1, 1, 1 })]
-        [TestCase(11, new int[] { 1, 0, 1 })]
-        [TestCase(11, new int[] { 0, 1, 0 })]
-        public void SortTwoNumbers(int id, int[] arr)
+        [TestCase("0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0")]
+        [TestCase("0, 1")]
+        [TestCase("1, 0")]
+        [TestCase("1, 0, 1, 0")]
+        [TestCase("0, 1, 0, 1")]
+        [TestCase("0, 1, 0, 0, 0, 1")]
+        [TestCase("1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1")]
+        [TestCase("0, 0, 0, 0, 1, 1, 1, 0, 1")]
+        [TestCase("0, 0, 0, 0, 1")]
+        [TestCase("0, 0, 0, 0, 1, 0, 0, 0, 0")]
+        [TestCase("0, 0, 0, 0")]
+        [TestCase("1, 1, 1, 1")]
+        [TestCase("1, 1, 1, 1, 0, 0, 0, 0")]
+        [TestCase("0, 0, 0, 0, 1, 1, 1, 1")]
+        [TestCase("1, 0, 0, 0, 0, 1")]
+        [TestCase("0, 1, 1, 1, 1, 0")]
+        [TestCase("1, 1, 1")]
+        [TestCase("1, 0, 1")]
+        [TestCase("0, 1, 0")]
+        public void SortTwoNumbers(string str)
         {
+            var arr = ListParser.ToListOfInts(str);
             var copy = new List<int>(arr);
 
 
@@ -41,6 +48,7 @@ namespace CodingProblemsTests
                     j++;
                 }
             }
+
             Assert.That(arr.JoinStrings(","), Is.EqualTo(copy.OrderBy(e => e).JoinStrings(",")));
             Console.WriteLine(arr.JoinStrings(","));
         }

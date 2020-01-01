@@ -1,97 +1,52 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodingProblemsTests.Structures
 {
-    public class MaxHeap : BaseHeap { protected override bool Compare(int a, int b) { return a > b; } }
-    public class MinHeap : BaseHeap { protected override bool Compare(int a, int b) { return a < b; } }
-
-    public abstract class BaseHeap
+    public class MinHeap<T> : BaseHeap<T> where T : IComparable<T>
     {
-        readonly List<int> _array = new List<int>(128);
-        int _heapSize = -1;
-
-        protected abstract bool Compare(int a, int b);
-
-        public virtual void Insert(int key)
+        public MinHeap() : base(true) { }
+    }
+    public class MaxHeap<T> : BaseHeap<T> where T : IComparable<T>
+    {
+        public MaxHeap() : base(false) { }
+    }
+    public abstract class BaseHeap<T> where T : IComparable<T>
+    {
+        readonly SortedDictionary<T, Queue<T>> _dict;
+        protected BaseHeap(bool isMin)
         {
-            _heapSize++;
-            if (_array.Count <= _heapSize)
-            {
-                _array.AddRange(
-                    Enumerable.Range(0, _heapSize - (_array.Count - 1))
-                              .Select(i => 0));
-            }
-            _array[_heapSize] = key;
-            Heapify(_heapSize);
+            _dict = isMin 
+                ? new SortedDictionary<T, Queue<T>>()
+                : new SortedDictionary<T, Queue<T>>(Comparer<T>.Create((a,b)=> -a.CompareTo(b)))
+                ;
         }
-        public virtual int GetTop()
+        public int Count { get; private set; }
+        public void Add(T i)
         {
-            int max = -1;
+            if (!_dict.TryGetValue(i, out var queue))
+                _dict[i] = queue = new Queue<T>();
 
-            if (_heapSize >= 0)
-            {
-                max = _array[0];
-            }
-
-            return max;
+            ++Count;
+            queue.Enqueue(i);
         }
-        public virtual int ExtractTop()
+        public T Pop()
         {
-            var del = -1;
-
-            if (_heapSize > -1)
-            {
-                del = _array[0];
-
-                Swap(_array, 0, _heapSize);
-                _heapSize--;
-                Heapify(GetParent(_heapSize + 1));
-            }
-
-            return del;
+            if (_dict.Count == 0) throw new InvalidOperationException();
+            var kvp = _dict.First();
+            var val = kvp.Value.Dequeue();
+            if (kvp.Value.Count == 0) _dict.Remove(kvp.Key);
+            --Count;
+            return val;
         }
-        public virtual int GetCount()
+        public T Peek()
         {
-            return _heapSize + 1;
+            if (_dict.Count == 0) throw new InvalidOperationException();
+            var kvp = _dict.First();
+            var val = kvp.Value.Peek();
+            --Count;
+            return val;
         }
-        public override string ToString()
-        {
-            return "{" + string.Join(";", _array) + "}";
-        }
-
-
-        static void Swap(IList<int> array, int aIndex, int bIndex )
-        {
-            var aux = array[aIndex];
-            array[aIndex] = array[bIndex];
-            array[bIndex] = aux;
-        }
-
-// if you need those...
-//        private int GetLeft(int i) { return 2 * i + 1; }
-//        private int GetRight(int i) { return 2 * (i + 1); }
-
-        int GetParent(int i)
-        {
-            if( i <= 0 )
-            {
-                return -1;
-            }
- 
-            return (i - 1)/2;
-        }
-
-        void Heapify(int i)
-        {
-            int p = GetParent(i);
- 
-            if( p >= 0 && Compare(_array[i], _array[p]) )
-            {
-                Swap(_array, i, p);
-                Heapify(p);
-            }
-        }
-
     }
 }
