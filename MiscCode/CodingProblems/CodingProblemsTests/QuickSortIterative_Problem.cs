@@ -67,9 +67,7 @@ namespace CodingProblemsTests
 
             while (queue.Count > 0)
             {
-                var first = queue.Dequeue();
-                left = first.left;
-                right = first.right;
+                (left, right) = queue.Dequeue();
                 
                 int pivotIndex = Partition(numbers, left, right);
 
