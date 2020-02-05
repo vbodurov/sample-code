@@ -18,10 +18,10 @@ namespace CodingProblemsTests
             Assert.That(result, Is.EqualTo(expect));
         }
 
-        private string Reverse(string origin)
+        string Reverse(string origin)
         {
-            var reversed = new String(origin.Reverse().ToArray());
-            return String.Join(" ", reversed.Split(' ').Reverse());
+            var reversed = new string(origin.Reverse().ToArray());
+            return string.Join(" ", reversed.Split(' ').Reverse());
         }
     }
 }

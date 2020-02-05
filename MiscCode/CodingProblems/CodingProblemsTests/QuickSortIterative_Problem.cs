@@ -30,12 +30,12 @@ namespace CodingProblemsTests
             Console.WriteLine(numbers.JoinStrings(","));
             Assert.That(numbers.JoinStrings(","), Is.EqualTo(expect));
         }
-        static int Partition(int[] numbers, int leftIndex, int rightIndex)
+        static int Partition(int[] numbers, int left, int right)
         {
-            var i = leftIndex;
-            int j = leftIndex;
-            int pivotValue = numbers[rightIndex];
-            for (; j < rightIndex; ++j)
+            var i = left;
+            int j = left;
+            int pivotValue = numbers[right];
+            for (; j < right; ++j)
             {
                 if (numbers[j] <= pivotValue)
                 {
@@ -43,7 +43,7 @@ namespace CodingProblemsTests
                     ++i;
                 }
             }
-            Swap(numbers, i, rightIndex);
+            Swap(numbers, i, right);
             return i;
         }
 

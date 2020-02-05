@@ -18,7 +18,7 @@ namespace CodingProblemsTests
             Assert.That(result, Is.EqualTo(expect));
         }
 
-        public class Solution
+        class Solution
         {
             public int CoinChange(int[] coins, int amount)
             {

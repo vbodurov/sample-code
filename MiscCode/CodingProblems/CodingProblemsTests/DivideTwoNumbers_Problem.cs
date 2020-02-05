@@ -3,6 +3,14 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
+    //https://leetcode.com/problems/divide-two-integers/submissions/
+    /*
+Given two integers dividend and divisor, 
+divide two integers without using multiplication, 
+division and mod operator.
+Return the quotient after dividing dividend by divisor.
+The integer division should truncate toward zero.
+     */
     [TestFixture]
     public class DivideTwoNumbers_Problem
     {
@@ -23,41 +31,20 @@ namespace CodingProblemsTests
         {
             public int Divide(int dividend, int divisor)
             {
-                int sign = 1;
-                long lDividend = (long)dividend;
-                long lDivisor = (long)divisor;
-
-                if (dividend < 0)
+                if (divisor == 0) return int.MaxValue;
+                int sign = dividend > 0 ^ divisor > 0 ? -1 : 1;
+                long m = Math.Abs((long)dividend), n = Math.Abs((long)divisor), count = 0;
+                for (m -= n; m >= 0; m -= n)
                 {
-                    sign = -sign;
-                    lDividend = -lDividend;
-                }
-
-                if (divisor < 0)
-                {
-                    lDivisor = -lDivisor;
-                    sign = -sign;
-                }
-
-                int count = 1;
-                while ((lDivisor << 1) <= lDividend)
-                {
-                    lDivisor <<= 1;
                     count++;
-                }
-
-                long result = 0;
-                for (int i = 0; i < count; i++)
-                {
-                    result <<= 1;
-                    if (lDividend >= lDivisor)
+                    if (m == 0) break;
+                    for (int subCount = 1; m - (n << subCount) >= 0; subCount++)
                     {
-                        lDividend -= lDivisor;
-                        result |= 1;
+                        m -= n << subCount;
+                        count += (int)Math.Pow(2, subCount);
                     }
-                    lDivisor >>= 1;
                 }
-                return (int)Math.Min(sign * result, (long)int.MaxValue);
+                return count * sign > int.MaxValue ? int.MaxValue : (int)count * sign;
             }
         }
     }

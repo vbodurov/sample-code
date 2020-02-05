@@ -62,21 +62,21 @@ namespace CodingProblemsTests
         int FindKthLargest_WithQuickSelect(int[] nums, int k)
         {
             var result = new QSResult();
-            QuickSelect(nums, 0, nums.Length - 1, k, result);
+            QuickSelect(nums, 0, nums.Length - 1, k, ref result);
             return result.Result;
         }
-        void QuickSelect(int[] nums, int left, int right, int k, QSResult result)
+        void QuickSelect(int[] nums, int left, int right, int k, ref QSResult result)
         {
             if (left <= right)
             {
                 var pivotIndex = Partition(nums, left, right);
-                if ((pivotIndex + 1) == k)
+                if ((pivotIndex + 1) == k) // + 1 because k is number not index
                 {
                     result.Result = nums[pivotIndex];
                     result.IsFound = true;
                 }
-                if (!result.IsFound) QuickSelect(nums, left, pivotIndex - 1, k, result);
-                if (!result.IsFound) QuickSelect(nums, pivotIndex + 1, right, k, result);
+                if (!result.IsFound) QuickSelect(nums, left, pivotIndex - 1, k, ref result);
+                if (!result.IsFound) QuickSelect(nums, pivotIndex + 1, right, k, ref result);
             }
         }
         int Partition(int[] nums, int left, int right)
@@ -101,7 +101,7 @@ namespace CodingProblemsTests
             nums[i] = nums[j];
             nums[j] = temp;
         }
-        class QSResult
+        struct QSResult
         {
             internal int Result;
             internal bool IsFound;

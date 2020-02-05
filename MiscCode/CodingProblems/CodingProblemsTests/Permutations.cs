@@ -9,14 +9,14 @@ namespace CodingProblemsTests
     public class Permutations
     {
         /*
-[]
-[1]
-[1,2]
-[1,2,3]
-[1,3]
-[2]
-[2,3]
-[3]
+""
+A
+AB
+ABC
+AC
+B
+BC
+C
          */
         [Test]
         [TestCase("ABC")]
@@ -27,7 +27,7 @@ namespace CodingProblemsTests
             Permutate1(0, letters, new List<char>(), subsets);
             foreach (var s in subsets)
             {
-                Console.WriteLine(s.JoinStrings(","));
+                Console.WriteLine(s.JoinStrings(""));
             }
 
         }
@@ -132,6 +132,7 @@ AB
 C
 B
 A
+""
          */
         [TestCase("ABC")]
         public void PrintLetters4_BFS(string letters)
@@ -149,7 +150,7 @@ A
                 for (var i = 0; i < curr.Length; i++)
                 {
                     var sub = curr.Substring(0, i) + curr.Substring(i + 1);
-                    if (sub.Length > 0 && !queueElements.Contains(sub))
+                    if (!queueElements.Contains(sub))
                     {
                         queue.Enqueue(sub);
                         queueElements.Add(sub);

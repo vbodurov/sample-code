@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateImage.cs" />
     <Compile Include="NeuralNets\BackPropagation.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoSimplified.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoOriginal.cs" />
@@ -99,9 +101,12 @@
     <None Include="App.config" />
     <None Include="Files\GeoLiteCity-Blocks.csv" />
     <None Include="Files\GeoLiteCity-Location.csv" />
+    <None Include="Files\sample.rplay" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Files\eurupa_altitude_1024x1024.jpg" />
+    <Content Include="Files\eurupa_out_1024x1024.png" />
     <Content Include="Files\Speech.wav" />
     <Content Include="Libs\UnityEngine.dll" />
   </ItemGroup>

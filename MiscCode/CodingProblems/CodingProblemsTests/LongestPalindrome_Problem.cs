@@ -10,6 +10,7 @@ namespace CodingProblemsTests
     {
         //https://leetcode.com/problems/longest-palindromic-substring/
         [Test]
+        [TestCase("aasdf", "aa")]
         [TestCase("babad", "bab")]
         [TestCase("cbbd", "bb")]
         [TestCase("asdfasdferrefwtewg", "ferref")]

@@ -24,10 +24,13 @@ namespace CodingProblemsTests
         [TestCase(new[] { 2, 1 }, 11)]
         public void MergeSortTest(int[] source, int id)
         {
+            // Arrange
             var head = ListNodeUtils.Create(source);
 
+            // Act
             head = MergeSort(head);
 
+            // Assert
             if (source.Length < 100) Console.WriteLine(ListNodeUtils.ToString(head));
 
             Assert.That(ListNodeUtils.ToString(head), Is.EqualTo(source.OrderBy(e => e).JoinStrings(",")));
@@ -35,9 +38,9 @@ namespace CodingProblemsTests
         }
         public ListNode MergeSort(ListNode head)
         {
-            if (head == null || head.next == null) return head;
+            if (head?.next == null) return head;
             ListNode slow = head, fast = head.next.next;
-            while (fast != null && fast.next != null)
+            while (fast?.next != null)
             {
                 fast = fast.next.next;
                 slow = slow.next;
