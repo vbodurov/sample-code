@@ -174,5 +174,5 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 
-/MiscCode/CodingProblems/CodingProblemsTests/Interview_Jan_2_2020.cs
+# /MiscCode/CodingProblems/CodingProblemsTests/Interview_Jan_2_2020.cs
 
