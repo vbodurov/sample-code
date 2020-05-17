@@ -20,7 +20,6 @@ The integer division should truncate toward zero.
         [TestCase(1, 1, 1)]
         [TestCase(int.MaxValue, 1, int.MaxValue)]
         [TestCase(int.MinValue, -1, int.MaxValue)]
-
         public void DivideTwoNumbers(int dividend, int divisor, int expect)
         {
             var result = new Solution().Divide(dividend, divisor);

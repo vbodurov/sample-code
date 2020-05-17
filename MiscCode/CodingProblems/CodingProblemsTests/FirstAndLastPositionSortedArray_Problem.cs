@@ -31,7 +31,7 @@ namespace CodingProblemsTests
             }
             int BinarySearch(int[] nums, int target, bool isFirst)
             {
-                int left = 0, right = nums.Length -1, res = -1;
+                int left = 0, right = nums.Length - 1, res = -1;
                 while (left <= right)
                 {
                     var mid = (right - left) / 2 + left;

@@ -12,6 +12,10 @@ namespace CodingProblemsTests
     {
         [Test]
         [TestCase("0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0")]
+        [TestCase("0")]
+        [TestCase("1")]
+        [TestCase("0, 0")]
+        [TestCase("1, 1")]
         [TestCase("0, 1")]
         [TestCase("1, 0")]
         [TestCase("1, 0, 1, 0")]
@@ -19,6 +23,8 @@ namespace CodingProblemsTests
         [TestCase("0, 1, 0, 0, 0, 1")]
         [TestCase("1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1")]
         [TestCase("0, 0, 0, 0, 1, 1, 1, 0, 1")]
+        [TestCase("1, 0, 1, 0, 1, 0, 1, 0, 1")]
+        [TestCase("0, 1, 0, 1, 0, 1, 0, 1, 0")]
         [TestCase("0, 0, 0, 0, 1")]
         [TestCase("0, 0, 0, 0, 1, 0, 0, 0, 0")]
         [TestCase("0, 0, 0, 0")]
@@ -27,6 +33,7 @@ namespace CodingProblemsTests
         [TestCase("0, 0, 0, 0, 1, 1, 1, 1")]
         [TestCase("1, 0, 0, 0, 0, 1")]
         [TestCase("0, 1, 1, 1, 1, 0")]
+        [TestCase("1, 1, 0, 1, 1")]
         [TestCase("1, 1, 1")]
         [TestCase("1, 0, 1")]
         [TestCase("0, 1, 0")]
@@ -35,19 +42,7 @@ namespace CodingProblemsTests
             var arr = ListParser.ToListOfInts(str);
             var copy = new List<int>(arr);
 
-
-            var j = 0;
-            for (int i = 1; i < arr.Length; i++)
-            {
-                if (arr[j] > arr[i])
-                {
-                    Swap(arr, i, j);
-                }
-                while (j < i && arr[j] < arr[i])
-                {
-                    j++;
-                }
-            }
+            Sort(arr);
 
             Assert.That(arr.JoinStrings(","), Is.EqualTo(copy.OrderBy(e => e).JoinStrings(",")));
             Console.WriteLine(arr.JoinStrings(","));
@@ -57,6 +52,21 @@ namespace CodingProblemsTests
             var temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
+        }
+        void Sort(int[] arr)
+        {
+            var l = 0;
+            for (int r = 1; r < arr.Length; r++)
+            {
+                if (arr[l] > arr[r])
+                {
+                    Swap(arr, r, l);
+                }
+                while (l < r && arr[l] < arr[r])
+                {
+                    l++;
+                }
+            }
         }
     }
 }

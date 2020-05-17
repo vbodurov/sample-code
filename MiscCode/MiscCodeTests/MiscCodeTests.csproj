@@ -73,7 +73,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenerateImage.cs" />
+    <Compile Include="DateTimeOffsetExtensionsTests.cs" />
+    <Compile Include="Extensions\ByteExtensions.cs" />
+    <Compile Include="Extensions\DateTimeOffsetExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\FieldInfoExtensions.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FieldInfoExtensionsTests.cs" />
+    <Compile Include="GenerateBaseImage.cs" />
+    <Compile Include="BaseImageProcessor.cs" />
     <Compile Include="NeuralNets\BackPropagation.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoSimplified.cs" />
     <Compile Include="NeuralNets\BuildNeuralNetworkDemoOriginal.cs" />
@@ -87,6 +96,10 @@
     <Compile Include="ProjectionTests.cs" />
     <Compile Include="NeuralNets\CustomNeuralNetDemo.cs" />
     <Compile Include="NeuralNets\OneDimensionalNeuralNet.cs" />
+    <Compile Include="PropertyExtensionsTests.cs" />
+    <Compile Include="ReadFileLines.cs" />
+    <Compile Include="RegexTests.cs" />
+    <Compile Include="RenemeFiles.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="NeuralNets\SimpleNeuralNet.cs" />
     <Compile Include="TexasHoldemTests.cs" />
@@ -105,8 +118,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Files\eurupa_altitude_1024x1024.jpg" />
+    <Content Include="Files\eurupa_altitude_1024x1024.png" />
     <Content Include="Files\eurupa_out_1024x1024.png" />
+    <Content Include="Files\lines.txt" />
     <Content Include="Files\Speech.wav" />
     <Content Include="Libs\UnityEngine.dll" />
   </ItemGroup>

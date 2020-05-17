@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using Microsoft.Practices.ObjectBuilder2;
 using MiscCodeTests.Extensions;
 using NUnit.Framework;
@@ -11,42 +13,16 @@ namespace MiscCodeTests
     public class MiscTests
     {
         [Test]
-        [TestCase(1, new int[] { 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0 })]
-        [TestCase(2, new int[] { 0, 1 })]
-        [TestCase(3, new int[] { 1, 0 })]
-        [TestCase(4, new int[] { 1, 0, 1, 0 })]
-        [TestCase(5, new int[] { 0, 1, 0, 1 })]
-        [TestCase(6, new int[] { 0, 1, 0, 0, 0, 1 })]
-        [TestCase(7, new int[] { 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1 })]
-        [TestCase(8, new int[] { 0, 0, 0, 0, 1, 1, 1, 0, 1 })]
-        [TestCase(9, new int[] { 0, 0, 0, 0, 1 })]
-        [TestCase(10, new int[] { 0, 0, 0, 0, 1, 0, 0, 0, 0 })]
-        [TestCase(11, new int[] { 0, 0, 0, 0 })]
-        public void Test1(int id, int[] arr)
+        public void Test1()
         {
-            var copy = new List<int>(arr);
 
-
-            var j = 0;
-            for (int i = 1; i < arr.Length; i++)
-            {
-                if (arr[j] > arr[i])
-                {
-                    swap(arr, i, j);
-                }
-                while (j < i && arr[j] < arr[i])
-                {
-                    j++;
-                }
-            }
-            Assert.That(arr.JoinStrings(","), Is.EqualTo(copy.OrderBy(e => e).JoinStrings(",")));
-            Console.WriteLine(arr.JoinStrings(","));
         }
-        void swap(int[] arr, int i, int j)
+        object Abc()
         {
-            var temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            var obj = Activator.CreateInstance(typeof(ValueTuple<int, string>));
+
+            obj.GetType().GetField("Item1").SetValue(obj, 564654);
+            return obj;
         }
         [Test]
         public void Test2()

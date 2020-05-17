@@ -7,6 +7,26 @@ namespace MiscCodeTests.Utils
     internal static class BezierFunc
     {
         const double epsilon = 0.000000001;
+
+        public static float bezier(double x, double bx, double by, double cx, double cy)
+        {
+            return (float)BezierFunc.GetY(x, bx, by, cx, cy);
+        }
+        public static float bezier(double x, double ax, double ay, double bx, double by, double cx, double cy, double dx, double dy)
+        {
+            return (float)BezierFunc.GetY(x, ax, ay, bx, by, cx, cy, dx, dy);
+        }
+        public static float bezier2parts(double x,
+            double ax1, double ay1, double bx1, double by1, double cx1, double cy1,
+            double ax2, double ay2, double bx2, double by2, double cx2, double cy2,
+            double dx2, double dy2)
+        {
+            if (x <= ax2)
+            {
+                return (float)BezierFunc.GetY(x, ax1, ay1, bx1, by1, cx1, cy1, ax2, ay2);
+            }
+            return (float)BezierFunc.GetY(x, ax2, ay2, bx2, by2, cx2, cy2, dx2, dy2);
+        }
         private static void GetCubicCoefficients(double a, double b, double c, double d, out double c0, out double c1, out double c2, out double c3)
         {
             c0 = -a + 3 * b - 3 * c + d;
