@@ -6,7 +6,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class BubbleSort_Problem
     {
-        [Test]
+        [Test, Category(category.InefficientAlgorythms)]
         public void BubbleSortTest()
         {
             int[] numbers = { 3, 8, 7, 5, 2, 1, 9, 6, 4 };

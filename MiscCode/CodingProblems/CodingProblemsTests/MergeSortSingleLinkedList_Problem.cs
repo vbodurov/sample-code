@@ -7,7 +7,7 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
-    [TestFixture]
+    [TestFixture, Category(category.FundamentalAlgorythms)]
     public class MergeSortSingleLinkedList_Problem
     {
         [Test]

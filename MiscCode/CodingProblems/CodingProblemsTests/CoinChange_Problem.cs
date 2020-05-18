@@ -12,6 +12,7 @@ namespace CodingProblemsTests
         [TestCase(new[] { 1, 2, 5 }, 11, 3)]
         [TestCase(new[] { 2 }, 3, -1)]
         [TestCase(new[] { 5 }, 4, -1)]
+        [Category(category.DynamicProgramming)]
         public void CoinChange(int[] coins, int amount, int expect)
         {
             var result = new Solution().CoinChange(coins, amount);

@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     public class Trie_Problem
     {
         //https://leetcode.com/problems/implement-trie-prefix-tree/
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void TestPrefixTree_Trie()
         {
             Trie trie = new Trie();

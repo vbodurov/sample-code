@@ -6,7 +6,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class MedianOf2Arrays_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void MedianOf2Arrays()
         {
             //1,2,12,13,15,17,26,30,38,45 m=16

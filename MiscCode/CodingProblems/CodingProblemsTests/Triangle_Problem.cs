@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     public class Triangle_Problem
     {
         //https://leetcode.com/problems/triangle/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void Triangle()
         {
             var input = new[]

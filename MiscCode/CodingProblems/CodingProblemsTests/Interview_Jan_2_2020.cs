@@ -6,7 +6,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class Interview_Jan_2_2020
     {
-        [Test]
+        [Test, Category(category.PINT)]
         public void FibonacciTest()
         {
             // Arrange

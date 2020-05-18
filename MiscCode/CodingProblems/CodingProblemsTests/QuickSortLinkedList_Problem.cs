@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class QuickSortLinkedList_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void QuickSortTest()
         {
             var numbers = new LinkedList<int>(new []{ 3, 11, 8, 7, 5, 2, 1, 12, 9, 6, 4, 10 });

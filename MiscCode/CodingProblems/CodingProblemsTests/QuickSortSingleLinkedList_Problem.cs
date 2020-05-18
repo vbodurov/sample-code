@@ -11,7 +11,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class QuickSortSingleLinkedList_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase(new[] { 3, 11, 8, 7, 5, 2, 1, 12, 9, 6, 4, 10 }, 1)]
         [TestCase(new[] { -5656, 6, 200, 0, -5, 10000 }, 2)]
         [TestCase(new[] { 5, 1, 3, 2, 4 }, 3)]

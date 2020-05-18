@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class SnakesAndLadders_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(@"[
         [-1, -1, -1, -1, -1, -1],
         [-1, -1, -1, -1, -1, -1],
@@ -31,7 +31,7 @@ namespace CodingProblemsTests
 
             Assert.That(result, Is.EqualTo(expect));
         }
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase( 1, 6, 5, 0)]
         [TestCase( 2, 6, 5, 1)]
         [TestCase(31, 6, 0, 5)]

@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class QuickSortRecursive_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("1")]
         [TestCase("1,1")]
         [TestCase("1,1,2")]

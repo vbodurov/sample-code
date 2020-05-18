@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class BinarySearch_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase(new[] { 12, 13, 14, 15 }, -1000)]
         [TestCase(new[] { 12, 13, 14, 15 }, 1000)]
         [TestCase(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15 }, 9)]
@@ -41,7 +41,7 @@ namespace CodingProblemsTests
             return arr[l] == target;
         }
 
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanFindElementRecursive()
         {
             const int notThere = 9;

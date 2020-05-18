@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     public class GenerateParentheses_Problem
     {
         //https://leetcode.com/problems/generate-parentheses/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void GenerateParentheses()
         {
             // Arrange

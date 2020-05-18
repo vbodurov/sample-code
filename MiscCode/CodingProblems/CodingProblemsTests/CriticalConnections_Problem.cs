@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
-    [TestFixture]
+    [TestFixture, Category(category.SpecificProblems)]
     public class CriticalConnections_Problem
     {
         [Test]

@@ -14,7 +14,7 @@ The integer division should truncate toward zero.
     [TestFixture]
     public class DivideTwoNumbers_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(10, 3, 3)]
         [TestCase( 7,-3,-2)]
         [TestCase(1, 1, 1)]

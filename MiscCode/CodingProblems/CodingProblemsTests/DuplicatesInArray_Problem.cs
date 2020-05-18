@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     public class DuplicatesInArray_Problem
     {
         // https://leetcode.com/problems/find-all-duplicates-in-an-array/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(new[]{ 4, 3, 2, 7, 8, 2, 3, 1 }, new[]{ 2, 3 })]
         public void DuplicatesInArray(int[] input, int[] expect)
         {

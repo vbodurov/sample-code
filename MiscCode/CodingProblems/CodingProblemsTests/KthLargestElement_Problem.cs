@@ -13,7 +13,7 @@ namespace CodingProblemsTests
     public class KthLargestElement_Problem
     {
         //https://leetcode.com/problems/kth-largest-element-in-an-array/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("1")]
         [TestCase("1,1")]
         [TestCase("1,2")]
@@ -41,7 +41,7 @@ namespace CodingProblemsTests
             }
             return minHeap.Pop();
         }
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("1")]
         [TestCase("1,1")]
         [TestCase("1,2")]

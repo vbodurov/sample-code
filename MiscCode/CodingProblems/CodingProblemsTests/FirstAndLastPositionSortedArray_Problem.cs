@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     public class FirstAndLastPositionSortedArray_Problem
     {
         //https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(new[] { 5, 7, 7, 8, 8, 10 }, 8, new[] { 3, 4 })]
         [TestCase(new[] { 5, 7, 7, 8, 8, 10 }, 6, new[] { -1, -1 })]
         public void FirstAndLastPositionSortedArray(int[] input, int target, int[] expect)

@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class RomanToArabic_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("IV", 4)]
         [TestCase("II", 2)]
         [TestCase("IX", 9)]

@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     public class RemoveElement_ArrayProblem
     {
         // https://leetcode.com/problems/remove-element/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(new[] { 3, 2, 2, 3 }, 3, 2)]
         [TestCase(new[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2, 5)]
         [TestCase(new[] { 1 }, 1, 0)]

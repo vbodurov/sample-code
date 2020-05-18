@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class NextPermutation_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("1,2,3", "1,3,2")]
         [TestCase("3,2,1", "1,2,3")]
         [TestCase("1,1,5", "1,5,1")]

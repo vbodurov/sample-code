@@ -10,7 +10,7 @@ namespace CodingProblemsTests
     public class Subsets_Problem
     {
         //https://leetcode.com/problems/subsets/
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void Subsets()
         {
             var subsets = new Solution().Subsets(new[] {1, 2, 3});

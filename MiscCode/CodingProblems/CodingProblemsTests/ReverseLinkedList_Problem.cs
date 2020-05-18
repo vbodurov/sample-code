@@ -6,7 +6,7 @@ namespace CodingProblemsTests
     public class ReverseLinkedList_Problem
     {
 
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void TestReverseNonRecursive()
         {
             var list = GetList();
@@ -16,7 +16,7 @@ namespace CodingProblemsTests
             Assert.That(ListToString(list), Is.EqualTo("4;3;2;1"));
         }
 
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void TestReverseRecursive()
         {
             var list = GetList();
@@ -26,7 +26,7 @@ namespace CodingProblemsTests
             Assert.That(ListToString(list), Is.EqualTo("4;3;2;1"));
         }
 
-        private void ReverseNonRecursive(List list)
+        void ReverseNonRecursive(List list)
         {
             var node = list.Head;
             Node newNext = null;

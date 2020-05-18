@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     public class LRUCache_Problem
     {
         // https://leetcode.com/problems/lru-cache/
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase(
             @"[""LRUCache"",""put"",""put"",""get"",""put"",""get"",""put"",""get"",""get"",""get""]",
             "[[2],[1,1],[2,2],[1,01],[3,3],[2],[4,4],[1],[3,03],[4,04]]",

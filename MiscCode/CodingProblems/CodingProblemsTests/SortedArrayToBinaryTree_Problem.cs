@@ -5,7 +5,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class SortedArrayToBinaryTree_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void SortedArrayToBinaryTree()
         {
             var arr = new[] {-10, -3, 0, 5, 9};

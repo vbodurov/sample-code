@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class WordLadder_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("hit", "cog", new []{"hot","dot","dog","lot","log","cog" }, 5)]
         [TestCase("hit", "cog", new[] { "hot", "dot", "dog", "lot", "log" }, 0)]
         public void WordLadder(string beginWord, string endWord, string[] wordList, int expect)

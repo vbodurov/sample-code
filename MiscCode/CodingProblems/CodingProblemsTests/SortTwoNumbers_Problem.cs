@@ -10,7 +10,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class SortTwoNumbers_Problem
     {
-        [Test]
+        [Test, Category(category.PINT)]
         [TestCase("0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0")]
         [TestCase("0")]
         [TestCase("1")]

@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class LongestCommonPrefix_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("qq;q", "q")]
         [TestCase("flower;flow;flight", "fl")]
         [TestCase("dog;racecar;car", "")]

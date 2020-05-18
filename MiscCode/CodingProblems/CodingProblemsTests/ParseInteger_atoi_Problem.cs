@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
-    [TestFixture]
+    [TestFixture, Category(category.PINT)]
     public class ParseInteger_atoi_Problem
     {
         //https://leetcode.com/problems/string-to-integer-atoi/

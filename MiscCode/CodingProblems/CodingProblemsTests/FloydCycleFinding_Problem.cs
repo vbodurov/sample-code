@@ -5,7 +5,7 @@ namespace CodingProblemsTests
 {
     public class FloydCycleFinding_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void FloydCycleFindingTest()
         {
             var n5 = new Node { Value = 5 };

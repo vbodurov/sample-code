@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class SumOfPairs_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void SumOfPairTest()
         {
             int[] input = { 2, 45, 7, 3, 5, 1, 8, 9 };

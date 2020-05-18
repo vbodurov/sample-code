@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class MedianFromStreamOfNumbers_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanGetMedianFromStreamOfIntegers()
         {
             var array =        new []{ 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
@@ -26,7 +26,7 @@ namespace CodingProblemsTests
             }
         }
 
-        public int AddNumberAndGetMedian(int e, int prevMedian, Base_Heap left, Base_Heap right)
+        int AddNumberAndGetMedian(int e, int prevMedian, Base_Heap left, Base_Heap right)
         {
             var leftCount = left.GetCount();
             var rightCount = right.GetCount();

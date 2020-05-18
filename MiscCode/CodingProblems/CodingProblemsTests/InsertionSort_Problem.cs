@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace CodingProblemsTests
 {
-    [TestFixture]
+    [TestFixture, Category(category.FundamentalAlgorythms)]
     public class InsertionSort_Problem
     {
         [Test]

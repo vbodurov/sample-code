@@ -6,7 +6,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class TreasureIsland_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void TreasureIsland()
         {
             char[][] grid = {

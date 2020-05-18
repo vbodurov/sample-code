@@ -12,7 +12,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class Fibonacci_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanComputeRecursive()
         {
             var sw = Stopwatch.StartNew();
@@ -23,7 +23,7 @@ namespace CodingProblemsTests
             //Elapsed:1133 result: 102334155
 
         }
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanComputeRecursiveWithCache()
         {
             var sw = Stopwatch.StartNew();
@@ -34,7 +34,7 @@ namespace CodingProblemsTests
             Console.WriteLine("Elapsed:" + sw.ElapsedMilliseconds + " result: " + result);
             //Elapsed:7 result: 354224848179261915075
         }
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanComputeLinear()
         {
             var sw = Stopwatch.StartNew();
@@ -44,7 +44,7 @@ namespace CodingProblemsTests
             Assert.That(result, Is.EqualTo(354224848179261915075M));
             //Elapsed:0 result: 12586269025
         }
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanComputeMatrix()
         {
             var sw = Stopwatch.StartNew();

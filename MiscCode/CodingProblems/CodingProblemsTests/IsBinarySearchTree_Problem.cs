@@ -5,7 +5,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class IsBinarySearchTree_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void IsBinarySearchTreeTest()
         {
             var correct =

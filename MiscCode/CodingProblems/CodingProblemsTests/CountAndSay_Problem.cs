@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class CountAndSay_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(1, "1")]
         [TestCase(2, "11")]
         [TestCase(3, "21")]

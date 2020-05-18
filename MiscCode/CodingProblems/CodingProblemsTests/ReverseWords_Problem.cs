@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class ReverseWords_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void CanReverseWords()
         {
             const string origin = "abcd efg hijkl";

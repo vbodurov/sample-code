@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class QuickSelect_Problem
     {
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         public void CanSelectAmongMany()
         {
             var fromBytes = GC.GetTotalMemory(false);

@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     public class LongestPalindrome_Problem
     {
         //https://leetcode.com/problems/longest-palindromic-substring/
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase("aasdf", "aa")]
         [TestCase("babad", "bab")]
         [TestCase("cbbd", "bb")]

@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class Spiral_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         [TestCase(0,"0,0")]
         [TestCase(1,"0,0|1,0|1,1|0,1|-1,1|-1,0|-1,-1|0,-1|1,-1")]
         [TestCase(2,"0,0|1,0|1,1|0,1|-1,1|-1,0|-1,-1|0,-1|1,-1|2,-1|2,0|2,1|2,2|1,2|0,2|-1,2|-2,2|-2,1|-2,0|-2,-1|-2,-2|-1,-2|0,-2|1,-2|2,-2")]
@@ -27,7 +27,7 @@ namespace CodingProblemsTests
             Assert.That(sb.ToString(), Is.EqualTo(expectedSequence));
         }
 
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void CanIterateFunc()
         {
             SpiralAsFunc(7,7);

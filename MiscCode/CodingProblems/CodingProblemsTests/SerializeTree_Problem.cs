@@ -7,7 +7,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class SerializeTree_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void SerializeTree()
         {
             var codec = new Codec();

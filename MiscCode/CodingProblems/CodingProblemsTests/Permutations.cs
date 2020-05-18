@@ -18,7 +18,7 @@ B
 BC
 C
          */
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("ABC")]
         public void PrintLetters1_DFS(string letters)
         {
@@ -51,7 +51,7 @@ BCA
 CAB
 CBA
          */
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("ABC")]
         public void PrintLetters2_DFS(string letters)
         {
@@ -89,7 +89,7 @@ BCA
 CBA
 CAB
          */
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("ABC")]
         public void PrintLetters3_DFS(string letters)
         {

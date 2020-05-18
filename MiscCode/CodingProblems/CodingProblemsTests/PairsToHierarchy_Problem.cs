@@ -8,7 +8,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class PairsToHierarchy_Problem
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void PairsToHierarchy_Recursive()
         {
             var map = new Dictionary<string, List<string>>();
