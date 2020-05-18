@@ -28,20 +28,20 @@ namespace CodingProblemsTests
         {
             if (list?.Head?.Next == null) return false;
 
-            var tortoise = list.Head.Next;
-            var hare = list.Head.Next.Next;
+            var slow = list.Head.Next;
+            var fast = list.Head.Next.Next;
 
-            while (tortoise != null && hare != null)
+            while (slow != null && fast != null)
             {
-                if(tortoise == hare)
+                if(slow == fast)
                 {
                     return true;
                 }
-                if(hare.Next != null)
+                if(fast.Next != null)
                 {
-                    hare = hare.Next.Next;
+                    fast = fast.Next.Next;
                 }
-                tortoise = tortoise.Next;
+                slow = slow.Next;
             }
             return false;
         }

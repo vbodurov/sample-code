@@ -20,7 +20,7 @@ namespace CodingProblemsTests
 
             Assert.That(nums.JoinStrings(","), Is.EqualTo(expected));
         }
-        [Test]
+        [Test, Category(category.FundamentalAlgorythms)]
         /*
             1,3,2
             2,1,3

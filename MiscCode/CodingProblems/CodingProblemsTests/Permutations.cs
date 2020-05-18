@@ -134,6 +134,7 @@ B
 A
 ""
          */
+        [Test, Category(category.FundamentalAlgorythms)]
         [TestCase("ABC")]
         public void PrintLetters4_BFS(string letters)
         {

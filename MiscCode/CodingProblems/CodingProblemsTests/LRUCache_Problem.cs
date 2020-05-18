@@ -30,7 +30,7 @@ namespace CodingProblemsTests
             "[[2],[2, 1],[1, 1],[2, 3],[4, 1],[1],[2]]",
             "[null,null,null,null,null,-1,3]"
             )]
-        public void LRUCache(string actionsStr, string valuesStr, string expectStr)
+        public void LRUCacheTest(string actionsStr, string valuesStr, string expectStr)
         {
             var actions = ListParser.ToListOfStrings(actionsStr);
             var values = ListParser.ToListOfLists(valuesStr);

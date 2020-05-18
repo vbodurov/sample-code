@@ -9,7 +9,7 @@ namespace CodingProblemsTests
     [TestFixture]
     public class MiscTests
     {
-        [Test]
+        [Test, Category(category.SpecificProblems)]
         public void Test1()
         {
 
