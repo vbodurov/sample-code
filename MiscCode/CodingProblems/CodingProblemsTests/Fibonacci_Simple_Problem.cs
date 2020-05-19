@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace CodingProblemsTests
 {
     [TestFixture]
-    public class Interview_Jan_2_2020
+    public class Fibonacci_Simple_Problem
     {
         [Test, Category(category.PINT)]
         public void FibonacciTest()
