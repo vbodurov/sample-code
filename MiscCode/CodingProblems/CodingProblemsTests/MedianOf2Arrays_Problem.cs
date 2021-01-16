@@ -6,6 +6,13 @@ namespace CodingProblemsTests
     [TestFixture]
     public class MedianOf2Arrays_Problem
     {
+        /*
+            1. use 2 pointers to iterate both arrays are comparing the items 
+               and keep tracking the second last and last item
+            2. also keep a counter++ when each comparison
+            3. stop iteration when counter >= total / 2 + 1
+            4. then return value based on total even or odd numbers.
+         */
         [Test, Category(category.SpecificProblems)]
         public void MedianOf2Arrays()
         {
@@ -22,59 +29,53 @@ namespace CodingProblemsTests
                 Console.Write("arrays are of unequal size");
         }
 
-        static int getMedian(int[] ar1, int[] ar2)
+        static int getMedian(int[] nums1, int[] nums2)
         {
-            var n = ar1.Length;
-            int i = 0;
-            int j = 0;
-            int count;
-            int m1 = -1, m2 = -1;
+            var total = nums1.Length + nums2.Length;
+            var isOdd = total % 2 == 1;
 
-            // Since there are 2n elements,  
-            // median will be average of  
-            // elements at index n-1 and n in  
-            // the array obtained after  
-            // merging ar1 and ar2 
-            for (count = 0; count <= n; count++)
+            var i1 = 0;
+            var i2 = 0;
+            var last = 0;
+            var secLast = 0;
+            var counter = 0;
+
+            while (i1 < nums1.Length || i2 < nums2.Length)
             {
-                // Below is to handle case  
-                // where all elements of ar1[]   
-                // are smaller than smallest 
-                // (or first) element of ar2[]  
-                if (i == n)
-                {
-                    m1 = m2;
-                    m2 = ar2[0];
-                    break;
-                }
+                counter++;
 
-                /* Below is to handle case where all  
-                elements of ar2[] are smaller than  
-                smallest(or first) element of ar1[] */
-                if (j == n)
+                secLast = last;
+                if (i1 < nums1.Length && i2 < nums2.Length)
                 {
-                    m1 = m2;
-                    m2 = ar1[0];
-                    break;
+                    if (nums1[i1] > nums2[i2])
+                    {
+                        last = nums2[i2];
+                        i2++;
+                    }
+                    else
+                    {
+                        last = nums1[i1];
+                        i1++;
+                    }
                 }
-
-                if (ar1[i] < ar2[j])
+                else if (i1 < nums1.Length)
                 {
-                    // Store the prev median  
-                    m1 = m2;
-                    m2 = ar1[i];
-                    i++;
+                    last = nums1[i1];
+                    i1++;
                 }
                 else
                 {
-                    // Store the prev median  
-                    m1 = m2;
-                    m2 = ar2[j];
-                    j++;
+                    last = nums2[i2];
+                    i2++;
                 }
+
+                //Console.WriteLine($"{total},{counter},{secLast},{last}");
+
+                if (counter >= total / 2 + 1) break;
             }
 
-            return (m1 + m2) / 2;
+            if (isOdd) return last;
+            return (int)((last + secLast) / 2d);
         }
     }
 }

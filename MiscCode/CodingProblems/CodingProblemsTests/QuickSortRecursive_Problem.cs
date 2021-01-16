@@ -46,16 +46,7 @@ namespace CodingProblemsTests
             Swap(numbers, i, rightIndex); // bring privot in the middle
             return i;
         }
-
-        static void Swap(int[] arr, int a, int b)
-        {
-            if(a == b) return;
-            int temp = arr[b];
-            arr[b] = arr[a];
-            arr[a] = temp;
-        }
-
-        private static void QuickSortRecursive(int[] arr, int leftIndex, int rightIndex)
+        static void QuickSortRecursive(int[] arr, int leftIndex, int rightIndex)
         {
             // For Recusrion
             if (leftIndex < rightIndex)
@@ -69,5 +60,14 @@ namespace CodingProblemsTests
                     QuickSortRecursive(arr, pivotIndex + 1, rightIndex);
             }
         }
+        static void Swap(int[] arr, int a, int b)
+        {
+            if(a == b) return;
+            int temp = arr[b];
+            arr[b] = arr[a];
+            arr[a] = temp;
+        }
+
+        
     }
 }

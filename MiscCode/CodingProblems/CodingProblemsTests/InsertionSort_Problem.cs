@@ -33,7 +33,7 @@ namespace CodingProblemsTests
             }
         }
 
-        private void InsertionSort(int[] numbers)
+        void InsertionSort(int[] numbers)
         {
             for (var i = 1; i < numbers.Length; i++)
             {

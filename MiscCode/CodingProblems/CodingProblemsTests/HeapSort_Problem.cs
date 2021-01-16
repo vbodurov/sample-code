@@ -60,24 +60,6 @@ namespace CodingProblemsTests
                 Heapify(arr, n, largest);
             }
         }
-        // static void Heapify(int[] arr, int n, int i)
-        // {
-        //     while (true)
-        //     {
-        //         var largest = i;
-        //         var left = 2 * i + 1;
-        //         var right = 2 * i + 2;
-        //         if (left < n && arr[left] > arr[largest]) largest = left;
-        //         if (right < n && arr[right] > arr[largest]) largest = right;
-        //         if (largest != i)
-        //         {
-        //             Swap(arr, i, largest);
-        //             i = largest;
-        //             continue;
-        //         }
-        //         break;
-        //     }
-        // }
         static void Swap(int[] arr, int a, int b)
         {
             var swap = arr[a];
