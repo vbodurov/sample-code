@@ -24,7 +24,8 @@ namespace CodingProblemsTests
             public int CoinChange(int[] coins, int amount)
             {
                 Array.Sort(coins);
-                var dp = Enumerable.Repeat(amount + 1, amount + 1).ToArray();
+                var dp = new int[amount + 1];
+                Array.Fill(dp, amount + 1);
                 dp[0] = 0;
                 for (int i = 0; i <= amount; i++)
                 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using CodingProblemsTests.Extensions;
 using NUnit.Framework;
 
@@ -160,6 +161,40 @@ A
             }
 
             Console.WriteLine(result.JoinStrings("\n"));
+        }
+
+        /*
+        []
+        [C]
+        [B]
+        [BC]
+        [A]
+        [AC]
+        [AB]
+        [ABC]
+         */
+        [Test, Category(category.FundamentalAlgorythms)]
+        [TestCase("ABC")]
+        public void PrintLetters5_DFS(string letters)
+        {
+            char?[] subset = new char?[letters.Length];
+
+            PrintLettersRecursive(letters, subset, 0);
+
+        }
+        void PrintLettersRecursive(string letters, char?[] subset, int i)
+        {
+            if (i == letters.Length)
+            {
+                Console.WriteLine("["+new string(subset.Where(e => e != null).Select(e => e.Value).ToArray())+"]");
+            }
+            else
+            {
+                subset[i] = null;
+                PrintLettersRecursive(letters, subset, i + 1);
+                subset[i] = letters[i];
+                PrintLettersRecursive(letters, subset, i + 1);
+            }
         }
     }
 }

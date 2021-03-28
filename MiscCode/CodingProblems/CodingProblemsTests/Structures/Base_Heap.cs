@@ -1,97 +1,103 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CodingProblemsTests.Structures
 {
-    public class Max_Heap : Base_Heap { protected override bool Compare(int a, int b) { return a > b; } }
-    public class Min_Heap : Base_Heap { protected override bool Compare(int a, int b) { return a < b; } }
-
-    public abstract class Base_Heap
+    public class HeapOfInt
     {
-        readonly List<int> _array = new List<int>(128);
-        int _heapSize = -1;
-
-        protected abstract bool Compare(int a, int b);
-
-        public virtual void Insert(int key)
+        readonly Func<int, int, int> _compare;
+        int _size = 0;
+        readonly List<int> _elements = new List<int>(Enumerable.Range(0, 128).Select(i => 0));
+        public HeapOfInt(Func<int, int, int> compare)
         {
-            _heapSize++;
-            if (_array.Count <= _heapSize)
-            {
-                _array.AddRange(
-                    Enumerable.Range(0, _heapSize - (_array.Count - 1))
-                              .Select(i => 0));
-            }
-            _array[_heapSize] = key;
-            Heapify(_heapSize);
+            _compare = compare;
         }
-        public virtual int GetTop()
+        public int Count => _size;
+        public int Peek()
         {
-            int max = -1;
+            if (_size == 0)
+                throw new IndexOutOfRangeException();
 
-            if (_heapSize >= 0)
-            {
-                max = _array[0];
-            }
-
-            return max;
+            return _elements[0];
         }
-        public virtual int ExtractTop()
+
+        public int Pop()
         {
-            var del = -1;
+            if (_size == 0)
+                throw new IndexOutOfRangeException();
 
-            if (_heapSize > -1)
-            {
-                del = _array[0];
+            var result = _elements[0];
+            _elements[0] = _elements[_size - 1];
+            _size--;
 
-                Swap(_array, 0, _heapSize);
-                _heapSize--;
-                Heapify(GetParent(_heapSize + 1));
-            }
+            HeapifyDown();
 
-            return del;
+            return result;
         }
-        public virtual int GetCount()
+
+        public void Add(int element)
         {
-            return _heapSize + 1;
+            if (_size >= _elements.Count)
+                throw new IndexOutOfRangeException();
+
+            _elements[_size] = element;
+            _size++;
+
+            HeapifyUp();
         }
         public override string ToString()
         {
-            return "{" + string.Join(";", _array) + "}";
+            return string.Join(",", _elements);
         }
+        int GetLeftChildIndex(int elementIndex) => 2 * elementIndex + 1;
+        int GetRightChildIndex(int elementIndex) => 2 * elementIndex + 2;
+        int GetParentIndex(int elementIndex) => (elementIndex - 1) / 2;
 
+        bool HasLeftChild(int elementIndex) => GetLeftChildIndex(elementIndex) < _size;
+        bool HasRightChild(int elementIndex) => GetRightChildIndex(elementIndex) < _size;
+        bool IsRoot(int elementIndex) => elementIndex == 0;
 
-        static void Swap(IList<int> array, int aIndex, int bIndex )
+        int GetLeftChild(int elementIndex) => _elements[GetLeftChildIndex(elementIndex)];
+        int GetRightChild(int elementIndex) => _elements[GetRightChildIndex(elementIndex)];
+        int GetParent(int elementIndex) => _elements[GetParentIndex(elementIndex)];
+
+        void Swap(int firstIndex, int secondIndex)
         {
-            var aux = array[aIndex];
-            array[aIndex] = array[bIndex];
-            array[bIndex] = aux;
+            var temp = _elements[firstIndex];
+            _elements[firstIndex] = _elements[secondIndex];
+            _elements[secondIndex] = temp;
         }
-
-// if you need those...
-//        private int GetLeft(int i) { return 2 * i + 1; }
-//        private int GetRight(int i) { return 2 * (i + 1); }
-
-        int GetParent(int i)
+        void HeapifyDown()
         {
-            if( i <= 0 )
+            int index = 0;
+            while (HasLeftChild(index))
             {
-                return -1;
+                var smallerIndex = GetLeftChildIndex(index);
+                if (HasRightChild(index) && _compare(GetRightChild(index), GetLeftChild(index)) < 0)
+                {
+                    smallerIndex = GetRightChildIndex(index);
+                }
+
+                if (_compare(_elements[smallerIndex], _elements[index]) >= 0)
+                {
+                    break;
+                }
+
+                Swap(smallerIndex, index);
+                index = smallerIndex;
             }
- 
-            return (i - 1)/2;
         }
 
-        void Heapify(int i)
+        void HeapifyUp()
         {
-            int p = GetParent(i);
- 
-            if( p >= 0 && Compare(_array[i], _array[p]) )
+            var index = _size - 1;
+            while (!IsRoot(index) && _compare(_elements[index], GetParent(index)) < 0)
             {
-                Swap(_array, i, p);
-                Heapify(p);
+                var parentIndex = GetParentIndex(index);
+                Swap(parentIndex, index);
+                index = parentIndex;
             }
         }
-
     }
 }

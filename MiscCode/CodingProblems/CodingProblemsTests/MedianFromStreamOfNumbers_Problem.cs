@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CodingProblemsTests.Structures;
 using NUnit.Framework;
 
@@ -10,72 +11,90 @@ namespace CodingProblemsTests
         [Test, Category(category.FundamentalAlgorythms)]
         public void CanGetMedianFromStreamOfIntegers()
         {
-            var array =        new []{ 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
-            var expectMedian = new[] { 5, 10, 5, 4, 3, 4, 5, 6,  7, 6,  7, 6 };
-            var median = array[0];
+            var input  = new []{ 5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4 };
+            var expect = new [] { 5, 10, 5, 4, 3, 4, 5, 6,  7, 6,  7, 6 };
 
-            var left  = new Max_Heap();
-            var right = new Min_Heap();
+            var result = findMedian(input);
 
-            for (var i = 0; i < array.Length; ++i )
-            {
-                median = AddNumberAndGetMedian(array[i], median, left, right);
-                
-                Console.WriteLine(i + " => " + median);
-                Assert.That(median, Is.EqualTo(expectMedian[i]));
-            }
+            if (string.Join(",", result) != string.Join(",", expect))
+                throw new Exception($"Expected '{string.Join(",", expect)}' but found '{string.Join(",", result)}'");
         }
 
-        int AddNumberAndGetMedian(int e, int prevMedian, Base_Heap left, Base_Heap right)
+        private static int[] findMedian(int[] arr)
         {
-            var leftCount = left.GetCount();
-            var rightCount = right.GetCount();
+            var minHeap = new HeapOfInt((a, b) => a.CompareTo(b));
+            var maxHeap = new HeapOfInt((a, b) => -a.CompareTo(b));
+            var result = new List<int>();
+            var median = arr[0];
 
-            if(leftCount > rightCount)
+            for (var i = 0; i < arr.Length; ++i)
             {
-                if (e < prevMedian) 
-                {
-                    right.Insert(left.ExtractTop());
+                median = getCurrentMedian(arr[i], median, minHeap, maxHeap);
 
-                    left.Insert(e);
+                Console.WriteLine(median);
+                Console.WriteLine(minHeap.ToString() + " | " + maxHeap.ToString());
+
+                result.Add(median);
+            }
+
+            return result.ToArray();
+        }
+        static int getCurrentMedian(int value, int prevMedian, HeapOfInt right, HeapOfInt left)
+        {
+            //5, 15, 1, 3
+            // L: 5, 1
+            // R: 15
+            // M: 10
+            // V: 1
+
+
+            var rightCount = right.Count;
+            var leftCount = left.Count;
+
+            if (rightCount > leftCount)
+            {
+                if (value < prevMedian)
+                {
+                    left.Add(value);
                 }
                 else
                 {
-                    right.Insert(e);
+                    left.Add(right.Pop());
+                    right.Add(value);
                 }
-
-                return Average(left.GetTop(), right.GetTop());
             }
-
-            if (leftCount == rightCount)
+            else if (rightCount == leftCount)
             {
-                if (e < prevMedian) 
+                if (value < prevMedian)
                 {
-                    left.Insert(e);
-                    return left.GetTop();
+                    left.Add(value);
                 }
-                right.Insert(e);
-                return right.GetTop();
-            }
-            
-            
-            // if(leftCount < rightCount) ...
-            
-            if (e < prevMedian)
-            {
-                left.Insert(e);
+                else
+                {
+                    right.Add(value);
+                }
             }
             else
-            {
-                left.Insert(right.ExtractTop());
-
-                right.Insert(e);
+            { // if(rightCount < leftCount){
+                if (value > prevMedian)
+                {
+                    right.Add(value);
+                }
+                else
+                {
+                    right.Add(left.Pop());
+                    left.Add(value);
+                }
             }
+            if (right.Count > left.Count) return right.Peek();
+            if (left.Count > right.Count) return left.Peek();
+            return average(right.Peek(), left.Peek());
 
-            return Average(left.GetTop(), right.GetTop());
-            
+        }
+        static int average(int left, int right)
+        {
+            return (right + left) / 2;
         }
 
-        int Average(int a, int b) { return (a + b) / 2; }
     }
 }
