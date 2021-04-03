@@ -43,12 +43,12 @@ namespace CodingProblemsTests
                     ++i;
                 }
             }
-            Swap(numbers, i, rightIndex); // bring privot in the middle
+            Swap(numbers, i, rightIndex); // bring pivot in the middle
             return i;
         }
         static void QuickSortRecursive(int[] arr, int leftIndex, int rightIndex)
         {
-            // For Recusrion
+            // For Recursion
             if (leftIndex < rightIndex)
             {
                 int pivotIndex = Partition(arr, leftIndex, rightIndex);

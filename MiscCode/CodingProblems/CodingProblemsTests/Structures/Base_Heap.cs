@@ -39,7 +39,7 @@ namespace CodingProblemsTests.Structures
         public void Add(int element)
         {
             if (_size >= _elements.Count)
-                throw new IndexOutOfRangeException();
+                _elements.AddRange(Enumerable.Range(0, _size).Select(i => 0));
 
             _elements[_size] = element;
             _size++;

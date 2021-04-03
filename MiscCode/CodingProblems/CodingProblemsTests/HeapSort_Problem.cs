@@ -33,6 +33,9 @@ namespace CodingProblemsTests
             
 
         }
+        static int GetLeftChildIndex(int i) => 2 * i + 1;
+        static int GetRightChildIndex(int i) => 2 * i + 2;
+        static int GetParentIndex(int i) => (i - 1) / 2;
         static void HeapSort(int[] arr, int n)
         {
             // build max heap
@@ -50,8 +53,8 @@ namespace CodingProblemsTests
         static void Heapify(int[] arr, int n, int i)
         {
             var largest = i;
-            var left = 2 * i + 1;
-            var right = 2 * i + 2;
+            var left = GetLeftChildIndex(i);
+            var right = GetRightChildIndex(i);
             if (left < n && arr[left] > arr[largest]) largest = left;
             if (right < n && arr[right] > arr[largest]) largest = right;
             if (largest != i)

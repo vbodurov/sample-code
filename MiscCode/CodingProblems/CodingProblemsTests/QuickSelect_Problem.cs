@@ -10,8 +10,6 @@ namespace CodingProblemsTests
         [Test, Category(category.FundamentalAlgorythms)]
         public void CanSelectAmongMany()
         {
-            var fromBytes = GC.GetTotalMemory(false);
-            var rand = new Random(DateTime.Now.Millisecond);
 
             var arr = new int[]{1,4,5,345,45,2,22,10,5,6,7};
 //            var arr = new int[23000000];
@@ -20,14 +18,10 @@ namespace CodingProblemsTests
 //                arr[i] = rand.Next(5, 10000000);
 //            }
 
-            var k = arr.Length / 2;
-            var sw = Stopwatch.StartNew();
+            var k = 0;
             var result = new QSResult();
             QuickSelect(arr, 0, arr.Length - 1, k, result);
-            sw.Stop();
-            var toBytes = GC.GetTotalMemory(false);
             Console.WriteLine("median:" + result.Result);
-            Console.WriteLine(sw.Elapsed.Milliseconds + "ms|memory used:" + ((toBytes - fromBytes) / (1024 * 1024)) + "MB");
 
 
         }
